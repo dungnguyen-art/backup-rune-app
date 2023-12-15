@@ -28,7 +28,6 @@ module.exports = {
     // This rule helps highlight areas of the code that use deprecated
     // methods, such as implicit use of signed transactions
     'deprecation/deprecation': 'warn',
-    'no-console': ['error'],
     'prefer-const': [
       'error',
       {
@@ -63,6 +62,23 @@ module.exports = {
         message: avoidFetchMsg,
       },
     ],
+    'padding-line-between-statements': [
+      'warn',
+      { blankLine: 'always', prev: ['const', 'let', 'var'], next: '*' },
+      { blankLine: 'any', prev: ['const', 'let', 'var'], next: ['const', 'let', 'var'] },
+      { blankLine: 'always', prev: '*', next: 'block-like' },
+      { blankLine: 'always', prev: 'block-like', next: '*' },
+      { blankLine: 'always', prev: '*', next: 'function' },
+      { blankLine: 'always', prev: 'function', next: '*' },
+      { blankLine: 'always', prev: '*', next: 'try' },
+      { blankLine: 'always', prev: 'try', next: '*' },
+      { blankLine: 'always', prev: '*', next: 'return' },
+      { blankLine: 'always', prev: '*', next: 'import' },
+      { blankLine: 'always', prev: 'import', next: '*' },
+      { blankLine: 'any', prev: 'import', next: 'import' }
+    ],
+    'comma-spacing': ["error", { "before": false, "after": true }],
+    'object-curly-spacing': ["error", 'always'],
     '@typescript-eslint/no-floating-promises': ['warn'],
     '@typescript-eslint/no-unnecessary-type-assertion': ['warn'],
     '@typescript-eslint/no-unused-vars': 'off',
@@ -81,7 +97,6 @@ module.exports = {
     '@typescript-eslint/no-unnecessary-condition': 'off',
     '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
     '@typescript-eslint/array-type': ['error'],
-    '@typescript-eslint/method-signature-style': ['error', 'method'],
     'no-warning-comments': [0],
 
     'react-hooks/rules-of-hooks': 'error',
@@ -97,9 +112,7 @@ module.exports = {
   overrides: [
     {
       files: ['test/**', 'src/**/*.spec.ts'],
-      rules: {
-        'no-console': [0],
-      },
+      rules: {},
     },
     {
       files: ['src/**/*'],

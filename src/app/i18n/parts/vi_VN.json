@@ -1,0 +1,49 @@
+{
+  "common": {
+    "copyToClipboard": "Copy to clipboard",
+    "to": "To",
+    "availableBalance": "Available balance",
+    "send": "Gui",
+    "buy": "Mua"
+  },
+  "term": {
+    "history.send": "Send",
+    "history.receive": "Receive"
+  },
+  "button": {
+    "continue": "Continue",
+    "cancel": "Cancel"
+  },
+  "confirmation": {
+    "signOut.brief": "When you sign out, you'll need your Secret Key to sign back in. Only sign out if you've backed up your Secret Key.",
+    "signOut.backupWarn": "If you haven't backed up your Secret Key, you will lose all your funds.",
+    "signOut.checkBackUpSecretKey": "I've backed up my Secret Key",
+    "signOut.checkPasswordNoLongerWork": "I understand my password will no longer work for accessing my wallet upon signing out"
+  },
+  "confirmationTitle": {
+    "signOut": "Sign out"
+  },
+  "validation": {
+    "send.accountNotEmpty": "Account must not empty"
+  },
+  "screen": {
+    "sendAsset-form.sendMax": "Send max",
+    "sendAsset-form.noteAboutTestnet": "This is a Bitcoin testnet transaction. Funds have no value.",
+    "sendAsset-form.getTestnetBTC": "Get testnet BTC here ↗",
+    "sendAsset-chooseFee.brief": "Chosen fee will affect your sending amount"
+  },
+  "screenTitle": {
+    "sendAsset-assetSelection": "Choose asset to send",
+    "sendAsset-form": "Send"
+  },
+  "dropdown": {
+    "settings.viewSecretKey": "View Secret Key"
+  },
+  "modal": {
+    "editNonce.brief": "If your transaction has been pending for a long time, its nonce might not be correct.",
+    "editNonce.learnMore": "Learn more."
+  },
+  "modalTitle": {
+    "receiveAsset-assetSelection": "Choose asset to receive"
+  }
+}

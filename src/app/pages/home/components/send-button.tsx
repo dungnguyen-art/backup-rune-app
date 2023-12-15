@@ -16,6 +16,7 @@ import { useCurrentStacksAccount } from '@app/store/accounts/blockchain/stacks/s
 import { ArrowUpIcon } from '@app/ui/components/icons/arrow-up-icon';
 
 import { ActionButton } from './action-button';
+import i18n from '@app/i18n';
 
 function SendButtonSuspense() {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ function SendButtonSuspense() {
   return (
     <ActionButton
       data-testid={HomePageSelectors.SendCryptoAssetBtn}
-      label="Send"
+      label={i18n.common.send}
       icon={<ArrowUpIcon />}
       onClick={() =>
         whenWallet({
@@ -46,7 +47,7 @@ function SendButtonSuspense() {
 }
 
 const SendButtonFallback = memo(() => (
-  <ActionButton label="Send" icon={<ArrowUpIcon />} disabled />
+  <ActionButton label={i18n.common.send} icon={<ArrowUpIcon />} disabled />
 ));
 
 export function SendButton() {

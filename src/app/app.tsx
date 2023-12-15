@@ -16,10 +16,13 @@ import { persistor, store } from '@app/store';
 import { ThemeSwitcherProvider } from './common/theme-provider';
 import { HeadProvider } from './features/html-head/head-provider';
 import './index.css';
+import { useSetupI18n } from '@app/common/hooks/i18n';
 
 const reactQueryDevToolsEnabled = process.env.REACT_QUERY_DEVTOOLS_ENABLED === 'true';
 
 export function App() {
+  useSetupI18n();
+
   return (
     <ReduxProvider store={store}>
       <PersistGate loading={<FullPageLoadingSpinner />} persistor={persistor}>
