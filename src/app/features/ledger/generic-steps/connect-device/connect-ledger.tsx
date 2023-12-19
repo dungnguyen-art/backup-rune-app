@@ -11,7 +11,7 @@ import { BtcLedgerIcon } from '@app/ui/components/icons/btc-ledger-icon';
 import { StxLedgerIcon } from '@app/ui/components/icons/stx-ledger-icon';
 
 import { LedgerWrapper } from '../../components/ledger-wrapper';
-
+import i18n from '@app/i18n'
 const PluggingInLedgerCableAnimation = lazy(
   () => import('../../animations/plugging-in-cable.lottie')
 );
@@ -84,7 +84,7 @@ export function ConnectLedger(props: ConnectLedgerProps) {
             >
               <BtcLedgerIcon />
               <styled.span ml="space.01" textStyle="label.02">
-                Connect Bitcoin
+                {i18n.button.connectBitcoin}
               </styled.span>
             </LeatherButton>
           )}
@@ -97,7 +97,7 @@ export function ConnectLedger(props: ConnectLedgerProps) {
             >
               <StxLedgerIcon />
               <styled.span ml="space.01" textStyle="label.02">
-                Connect Stacks
+                {i18n.button.connectStacks}
               </styled.span>
             </LeatherButton>
           )}
@@ -113,11 +113,11 @@ export function ConnectLedger(props: ConnectLedgerProps) {
           <Divider />
           <Stack gap="space.01">
             <styled.span textStyle="label.03" color="accent.text-subdued">
-              First time using Ledger on Leather?
+              {i18n.common.learnHowToUseLedger}
             </styled.span>
             <ExternalLink href="https://www.hiro.so/wallet-faq/how-can-i-use-my-ledger-device-with-hiro-wallet">
               <styled.span textStyle="label.03" textDecoration="underline">
-                Learn how to use Ledger device with Leather ↗
+                {i18n.common.learnHowToUseLedger}
               </styled.span>
             </ExternalLink>
           </Stack>

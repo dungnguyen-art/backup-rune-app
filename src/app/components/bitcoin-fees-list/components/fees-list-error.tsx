@@ -5,10 +5,11 @@ import { Box } from 'leather-styles/jsx';
 import { RouteUrls } from '@shared/route-urls';
 
 import { GenericError, GenericErrorListItem } from '@app/components/generic-error/generic-error';
+import i18n from '@app/i18n'
 
-const body = 'Check balance and try again';
-const helpTextList = [<GenericErrorListItem key={1} text="Possibly caused by api issues" />];
-const title = 'Unable to calculate fees';
+const body = i18n.errorMessages.body;
+const helpTextList = [<GenericErrorListItem key={1} text= {i18n.errorMessages.helpTextList} />];
+const title = i18n.errorMessages.title;
 
 export function FeesListError() {
   const navigate = useNavigate();

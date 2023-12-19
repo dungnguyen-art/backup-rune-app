@@ -28,6 +28,7 @@ import { Caption } from '@app/ui/components/typography/caption';
 import { useSelectedTx } from '../hooks/use-selected-tx';
 import { IncreaseFeeActions } from './increase-fee-actions';
 import { IncreaseFeeField } from './increase-fee-field';
+import i18n from '@app/i18n'
 
 export function IncreaseStxFeeForm() {
   const refreshAccountData = useRefreshAllAccountData();
@@ -47,7 +48,7 @@ export function IncreaseStxFeeForm() {
   useEffect(() => {
     if (tx?.tx_status !== 'pending' && rawTx) {
       setTxId(null);
-      toast('Your transaction went through! No need to speed it up.');
+      toast(i18n.notification.increaseStxFeeForm);
     }
   }, [rawTx, tx?.tx_status, setTxId]);
 
@@ -95,10 +96,10 @@ export function IncreaseStxFeeForm() {
         <Stack gap="space.06">
           {tx && <StacksTransactionItem position="relative" transaction={tx} zIndex={99} />}
           <Stack gap="space.04">
-            <IncreaseFeeField currentFee={fee} />
+            <IncreaseFeeField currentFee={fee} />m
             {balances?.stx.unlockedStx.amount && (
               <Caption>
-                Balance: {stacksValue({ value: availableBalance.amount, fixedDecimals: true })}
+                {i18n.common.balance}: {stacksValue({ value: availableBalance.amount, fixedDecimals: true })}
               </Caption>
             )}
           </Stack>

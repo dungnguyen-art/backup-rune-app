@@ -33,6 +33,7 @@ import {
   LedgerMsgSigningProvider,
 } from './ledger-stacks-sign-msg.context';
 import { useUnsignedMessageType } from './use-message-type';
+import i18n from '@app/i18n'
 
 interface LedgerSignMsgData {
   account: StacksAccount;
@@ -158,7 +159,7 @@ function LedgerSignStacksMsg({ account, unsignedMessage }: LedgerSignMsgProps) {
         isWaitingOnPerformedAction={awaitingDeviceConnection || canUserCancelAction}
         onClose={ledgerNavigate.cancelLedgerAction}
         pauseOnClickOutside
-        waitingOnPerformedActionMessage="Ledger device in use"
+        waitingOnPerformedActionMessage={i18n.common.ledgerInUse}
       >
         <Outlet />
       </BaseDrawer>

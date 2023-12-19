@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 import { Box, Flex, styled } from 'leather-styles/jsx';
-
+import i18n from '@app/i18n'
 export const AccountListUnavailable = memo(() => (
   <Flex
     flexDirection="column"
@@ -13,8 +13,7 @@ export const AccountListUnavailable = memo(() => (
     <Box>
       <styled.span textStyle="label.01">Unable to load account information</styled.span>
       <styled.span mt="space.03" textStyle="body.02">
-        We're unable to load information about your accounts. This may be a problem with the
-        wallet's API. If this problem persists, contact support.
+        {i18n.common.accountListUnavailable}
       </styled.span>
     </Box>
   </Flex>

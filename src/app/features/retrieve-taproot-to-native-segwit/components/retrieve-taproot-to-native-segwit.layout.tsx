@@ -4,6 +4,7 @@ import { BaseDrawer } from '@app/components/drawer/base-drawer';
 import { WarningLabel } from '@app/components/warning-label';
 import { LeatherButton } from '@app/ui/components/button';
 import { BtcIcon } from '@app/ui/components/icons/btc-icon';
+import i18n from '@app/i18n'
 
 interface RetrieveTaprootToNativeSegwitLayoutProps {
   isBroadcasting: boolean;
@@ -20,24 +21,20 @@ export function RetrieveTaprootToNativeSegwitLayout(
       <Flex alignItems="start" flexDirection="column" mt="-45px" mx="space.06" textAlign="left">
         <BtcIcon />
         <styled.span mt="space.04" textStyle="label.01">
-          Retrieve Bitcoin deposited to <br /> Taproot addresses
+          {i18n.common.noteRetrieveDeposited}
         </styled.span>
         <styled.span mt="space.05" textStyle="body.02">
-          Taproot addresses are used by Leather for Ordinal inscriptions, but they can also contain
-          bitcoin.
+          {i18n.common.noteTarootAddress}
         </styled.span>
         <styled.span mt="space.04" textStyle="body.02">
-          As we don't support tranferring from Taproot addresses yet, you can retrieve funds to your
-          account's main Native SegWit balance here.
+          {i18n.common.noteSupport}
         </styled.span>
         <styled.span mt="space.04" textStyle="body.02">
-          This transaction may take upwards of 30 minutes to confirm.
+          {i18n.common.noteDurationTransaction}
         </styled.span>
         {children}
         <WarningLabel mt="space.05">
-          We recommend you check the URL for each "Uninscribed UTXO" listed above to ensure it
-          displays no inscription. If it does display one, do not proceed with retrieval or you may
-          lose it!
+          {i18n.common.noteUTXO}
         </WarningLabel>
         <LeatherButton
           onClick={onApproveTransaction}
@@ -45,7 +42,7 @@ export function RetrieveTaprootToNativeSegwitLayout(
           width="100%"
           my="space.05"
         >
-          Retrieve bitcoin
+          {i18n.button.retrieveBitcoin}
         </LeatherButton>
       </Flex>
     </BaseDrawer>

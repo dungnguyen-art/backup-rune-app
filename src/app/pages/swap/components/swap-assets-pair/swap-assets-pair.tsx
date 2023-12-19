@@ -8,6 +8,7 @@ import { isUndefined } from '@shared/utils';
 import { SwapFormValues } from '../../hooks/use-swap-form';
 import { SwapAssetItemLayout } from './swap-asset-item.layout';
 import { SwapAssetsPairLayout } from './swap-assets-pair.layout';
+import i18n from "@app/i18n";
 
 export function SwapAssetsPair() {
   const { values } = useFormikContext<SwapFormValues>();
@@ -23,7 +24,7 @@ export function SwapAssetsPair() {
     <SwapAssetsPairLayout
       swapAssetFrom={
         <SwapAssetItemLayout
-          caption="You will swap"
+          caption={i18n.screen["swap-review.noteOrigin"]}
           icon={swapAssetFrom.icon}
           symbol={swapAssetFrom.balance.symbol}
           value={swapAmountFrom}
@@ -31,7 +32,7 @@ export function SwapAssetsPair() {
       }
       swapAssetTo={
         <SwapAssetItemLayout
-          caption="You will receive"
+          caption={i18n.screen["swap-review.noteReceive"]}
           icon={swapAssetTo.icon}
           symbol={swapAssetTo.balance.symbol}
           value={swapAmountTo}

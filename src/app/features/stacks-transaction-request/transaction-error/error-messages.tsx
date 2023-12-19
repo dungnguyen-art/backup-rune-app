@@ -18,6 +18,7 @@ import { useTransactionRequestState } from '@app/store/transactions/requests.hoo
 import { LeatherButton } from '@app/ui/components/button';
 import { Caption } from '@app/ui/components/typography/caption';
 import { truncateMiddle } from '@app/ui/utils/truncate-middle';
+import i18n from '@app/i18n'
 
 interface InsufficientFundsActionButtonsProps {
   eventName: string;
@@ -34,9 +35,9 @@ function InsufficientFundsActionButtons({ eventName }: InsufficientFundsActionBu
 
   return (
     <>
-      <LeatherButton onClick={onGetStx}>Get STX</LeatherButton>
+      <LeatherButton onClick={onGetStx}>{i18n.button.getSTX}</LeatherButton>
       <LeatherButton onClick={() => setIsShowingSwitchAccountsState(true)} variant="outline">
-        Switch account
+        {i18n.button.switchAccount}
       </LeatherButton>
     </>
   );
@@ -45,8 +46,8 @@ function InsufficientFundsActionButtons({ eventName }: InsufficientFundsActionBu
 export const FeeInsufficientFundsErrorMessage = memo(props => {
   return (
     <ErrorMessage
-      title="Insufficient balance"
-      body={`You do not have enough STX to cover the network fees for this transaction.`}
+      title={i18n.common.feeInsufficientTitle}
+      body={i18n.common.feeInsufficientBody}
       actions={<InsufficientFundsActionButtons eventName="get_stx_for_tx_fees" />}
       {...props}
     />
@@ -59,16 +60,15 @@ export const StxTransferInsufficientFundsErrorMessage = memo(props => {
 
   return (
     <ErrorMessage
-      title="Insufficient balance"
+      title={i18n.common.feeInsufficientTitle}
       body={
         <Stack gap="space.05">
           <Caption color="accent.text-primary">
-            You don't have enough STX to make this transfer. Send some STX to this address, or
-            switch to another account.
+            {i18n.common.stxTransferCaption}
           </Caption>
           <Stack gap="space.04" justifyContent="flex-end" textAlign="right">
             <HStack alignItems="center" justifyContent="space-between">
-              <Caption>Current balance</Caption>
+              <Caption>{i18n.common.currentBalance}</Caption>
               <Caption>
                 {balance
                   ? stacksValue({
@@ -152,8 +152,8 @@ export const ExpiredRequestErrorMessage = memo(props => {
       backdropFilter="blur(10px)"
     >
       <ErrorMessage
-        title="Expired request"
-        body="This transaction request has expired or cannot be validated, try to re-initiate this transaction request from the original app."
+        title={i18n.common.expiredRequestTitle}
+        body={i18n.common.expiredRequestBody}
         border="1px solid"
         borderColor="accent.border-default"
         // #4476 TODO - move this to new error component

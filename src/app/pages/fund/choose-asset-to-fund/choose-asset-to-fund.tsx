@@ -15,7 +15,7 @@ import { useNativeSegwitBalance } from '@app/query/bitcoin/balance/btc-native-se
 import { createStacksCryptoCurrencyAssetTypeWrapper } from '@app/query/stacks/balance/stacks-ft-balances.utils';
 import { useCurrentAccountNativeSegwitSigner } from '@app/store/accounts/blockchain/bitcoin/native-segwit-account.hooks';
 import { useCheckLedgerBlockchainAvailable } from '@app/store/accounts/blockchain/utils';
-
+import i18n from '@app/i18n'
 function useBtcCryptoCurrencyAssetBalance() {
   const currentBtcSigner = useCurrentAccountNativeSegwitSigner();
   if (!currentBtcSigner?.(0).address) throw new Error('No bitcoin address');
@@ -68,7 +68,7 @@ export function ChooseCryptoAssetToFund() {
   return (
     <>
       <ChooseAssetContainer>
-        <ChooseCryptoAssetLayout title="choose asset to fund">
+        <ChooseCryptoAssetLayout title={i18n.common.chooseAssetToFund}>
           <CryptoAssetList
             onItemClick={navigateToSendForm}
             cryptoAssetBalances={filteredCryptoAssetBalances}

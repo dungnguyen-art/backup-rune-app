@@ -26,6 +26,7 @@ import { useStacksAccounts } from '@app/store/accounts/blockchain/stacks/stacks-
 import { LeatherButton } from '@app/ui/components/button';
 
 import { PasswordField } from './components/password-field';
+import i18n from '@app/i18n'
 
 // Imported dynamically
 // ts-unused-exports:disable-next-line
@@ -135,11 +136,10 @@ function SetPasswordPage() {
                   Set a password
                 </styled.h1>
                 <styled.p textStyle={['label.01', 'heading.05']} mb="space.06">
-                  Your password protects your Secret Key on this device only.
+                  {i18n.common.protectSecretKey}
                 </styled.p>
                 <styled.p textStyle="body.02" color="brown.10">
-                  You'll need just your Secret Key to access your wallet on another device, or this
-                  one if you lose your password.
+                  {i18n.common.needSecretKey}
                 </styled.p>
               </>
             }
@@ -152,7 +152,7 @@ function SetPasswordPage() {
                   hideBelow="sm"
                   textAlign="center"
                 >
-                  Your password
+                  {i18n.common.yourPassword}
                 </styled.h2>
                 <PasswordField strengthResult={strengthResult} isDisabled={loading} />
                 <LeatherButton
@@ -162,7 +162,7 @@ function SetPasswordPage() {
                   mt="space.08"
                   type="submit"
                 >
-                  Continue
+                  {i18n.button.continue}
                 </LeatherButton>
               </>
             }

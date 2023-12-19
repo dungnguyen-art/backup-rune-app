@@ -9,6 +9,7 @@ import { useLedgerTxSigningContext } from '@app/features/ledger/generic-flows/tx
 import { ApproveLedgerOperationLayout } from '@app/features/ledger/generic-steps/approve-ledger-operation/approve-ledger-operation.layout';
 import { useHasApprovedOperation } from '@app/features/ledger/hooks/use-has-approved-transaction';
 import { useCurrentStacksAccount } from '@app/store/accounts/blockchain/stacks/stacks-account.hooks';
+import i18n from '@app/i18n'
 
 const sipTenTransferArguments = ['Amount', 'Sender', 'To', 'Memo'];
 
@@ -66,7 +67,7 @@ export function ApproveSignLedgerStacksTx() {
 
   return (
     <ApproveLedgerOperationLayout
-      description="Verify the transaction details on your Ledger"
+      description={i18n.common.verifyTransactionLedger}
       details={transactionDetails}
       status={hasApprovedOperation ? 'approved' : 'awaiting-approval'}
     />

@@ -5,7 +5,7 @@ import { useViewportMinWidth } from '@app/common/hooks/use-media-query';
 import { LeatherButton } from '@app/ui/components/button';
 import { LeatherIcon } from '@app/ui/components/icons/leather-icon';
 import { LeatherLettermarkIcon } from '@app/ui/components/icons/leather-lettermark-icon';
-
+import i18n from '@app/i18n'
 interface WelcomeLayoutProps {
   tagline: React.ReactNode;
   subheader: React.ReactNode;
@@ -54,7 +54,7 @@ export function WelcomeLayout({
             data-testid={OnboardingSelectors.SignUpBtn}
             aria-busy={isGeneratingWallet}
           >
-            Create new wallet
+            {i18n.button.createNewWallet}
           </LeatherButton>
           <Flex
             flexDir={['row', '', 'column']}
@@ -70,7 +70,7 @@ export function WelcomeLayout({
               data-testid={OnboardingSelectors.SignInLink}
               onClick={onRestoreWallet}
             >
-              Use existing key
+              {i18n.button.useExistingKey}
             </LeatherButton>
             <LeatherButton
               variant={isAtleastBreakpointMd ? 'link' : 'outline'}
@@ -79,7 +79,7 @@ export function WelcomeLayout({
               mt={[0, 0, 'space.05']}
               onClick={onSelectConnectLedger}
             >
-              Use Ledger
+              {i18n.button.useLedger}
             </LeatherButton>
           </Flex>
         </Flex>

@@ -18,7 +18,7 @@ import { ModalHeader } from '@app/components/modal-header';
 import { CheckmarkIcon } from '@app/ui/components/icons/checkmark-icon';
 import { CopyIcon } from '@app/ui/components/icons/copy-icon';
 import { ExternalLinkIcon } from '@app/ui/components/icons/external-link-icon';
-
+import i18n from '@app/i18n'
 export function LockBitcoinSummary() {
   const { state } = useLocation();
 
@@ -52,18 +52,17 @@ export function LockBitcoinSummary() {
         value={Number(satToBtc(txMoney.amount))}
       />
       <styled.span fontSize={2} fontWeight={200} p="space.05" textAlign="justify">
-        <styled.span style={{ fontWeight: 500 }}>Success!</styled.span> Your bitcoin has been locked
-        securely. All that's left is for it to be confirmed on the blockchain. After confirmation,
-        you can proceed with borrowing against it.
+        <styled.span style={{ fontWeight: 500 }}>{i18n.common.success}</styled.span>
+        {i18n.common.lockedBitcoin}
       </styled.span>
       <InfoCardFooter>
         <HStack gap="space.04" width="100%">
           <InfoCardBtn
             icon={<ExternalLinkIcon size="14px" />}
-            label="View details"
+            label={i18n.button.viewDetails}
             onClick={onClickLink}
           />
-          <InfoCardBtn icon={<CopyIcon size="14px" />} label="Copy ID" onClick={onClickCopy} />
+          <InfoCardBtn icon={<CopyIcon size="14px" />} label={i18n.button.copyID} onClick={onClickCopy} />
         </HStack>
       </InfoCardFooter>
     </InfoCard>

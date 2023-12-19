@@ -13,7 +13,7 @@ import { openIndexPageInNewTab } from '@app/common/utils/open-in-new-tab';
 import { Header } from '@app/components/header';
 import { RequestPassword } from '@app/components/request-password';
 import { useNewBrandApprover } from '@app/store/settings/settings.selectors';
-
+import i18n from '@app/i18n'
 export function Unlock() {
   const navigate = useNavigate();
 
@@ -43,12 +43,12 @@ export function Unlock() {
       <RequestPassword
         title={
           <>
-            Your
-            <br />
-            session is locked
+              {i18n.formatString(i18n.common.unlockPasswork, {
+                  htmlTag: <br/>
+              })}
           </>
         }
-        caption="Enter the password you set on this device"
+        caption={i18n.common.requestPassworkCaption}
         onSuccess={handleSuccess}
       />
       <Outlet />

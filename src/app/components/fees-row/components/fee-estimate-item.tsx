@@ -5,8 +5,8 @@ import { HStack, styled } from 'leather-styles/jsx';
 import { LeatherButton } from '@app/ui/components/button';
 import { CheckmarkIcon } from '@app/ui/components/icons/checkmark-icon';
 import { ChevronDownIcon } from '@app/ui/components/icons/chevron-down-icon';
-
-const labels = ['Low', 'Standard', 'High', 'Custom'];
+import i18n from '@app/i18n'
+const labels = [i18n.screen["sendAsset-chooseFee.low"], i18n.screen["sendAsset-chooseFee.standard"], i18n.screen["sendAsset-chooseFee.high"], i18n.screen["sendAsset-chooseFee.custom"]];
 const testLabels = labels.map(label => label.toLowerCase());
 
 interface FeeEstimateItemProps {

@@ -78,7 +78,7 @@ export function useRpcSignPsbt() {
       },
       onError(e) {
         navigate(RouteUrls.RequestError, {
-          state: { message: e instanceof Error ? e.message : '', title: 'Failed to broadcast' },
+          state: { message: e instanceof Error ? e.message : '', title: 'Failed to broadcast yy' },
         });
       },
     });

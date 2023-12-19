@@ -6,11 +6,12 @@ import get from 'lodash.get';
 import { RouteUrls } from '@shared/route-urls';
 
 import { GenericError, GenericErrorListItem } from '@app/components/generic-error/generic-error';
+import i18n from "@app/i18n";
 
 const helpTextList = [
   <GenericErrorListItem
     key={1}
-    text={<styled.span textStyle="label.02">Please report issue to swap protocol</styled.span>}
+    text={<styled.span textStyle="label.02">{i18n.errorMessages["swap-broadcastError.report"]}</styled.span>}
   />,
 ];
 

@@ -6,6 +6,7 @@ import { PsbtOutput } from '@app/features/psbt-signer/hooks/use-parsed-outputs';
 import { truncateMiddle } from '@app/ui/utils/truncate-middle';
 
 import { PsbtInputOutputItemLayout } from '../../psbt-input-output-item.layout';
+import i18n from '@app/i18n'
 
 const pillHoverLabel = 'Value you’ll receive after this transaction is complete.';
 
@@ -19,7 +20,7 @@ export function PsbtOutputItem({ output }: { output: PsbtOutput }) {
       address={truncateMiddle(output.address)}
       addressHoverLabel={output.address}
       amount={formatMoney(createMoney(Number(output.value), 'BTC'))}
-      label={output.toSign ? <Pill hoverLabel={pillHoverLabel} label="You" /> : undefined}
+      label={output.toSign ? <Pill hoverLabel={pillHoverLabel} label={i18n.common.you} /> : undefined}
     />
   );
 }

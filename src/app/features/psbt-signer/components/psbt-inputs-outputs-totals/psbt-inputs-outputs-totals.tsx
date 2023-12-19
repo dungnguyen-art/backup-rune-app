@@ -6,6 +6,7 @@ import { PsbtRequestDetailsSectionHeader } from '../psbt-request-details-section
 import { PsbtRequestDetailsSectionLayout } from '../psbt-request-details-section.layout';
 import { PsbtAddressReceiveTotals } from './components/psbt-address-receive-totals';
 import { PsbtAddressTransferTotals } from './components/psbt-address-transfer-totals';
+import i18n from '@app/i18n'
 
 export function PsbtInputsOutputsTotals() {
   const { addressNativeSegwitTotal, addressTaprootTotal } = usePsbtSignerContext();
@@ -28,14 +29,14 @@ export function PsbtInputsOutputsTotals() {
     <PsbtRequestDetailsSectionLayout p="unset">
       {isTransferring ? (
         <Box p="space.05">
-          <PsbtRequestDetailsSectionHeader title="You'll transfer" />
+          <PsbtRequestDetailsSectionHeader title={i18n.common.youTransfer} />
           <PsbtAddressTransferTotals showNativeSegwitTotal={isNativeSegwitTotalGreaterThanZero} />
         </Box>
       ) : null}
       {showDivider ? <styled.hr border="default" /> : null}
       {isReceiving ? (
         <Box p="space.05">
-          <PsbtRequestDetailsSectionHeader title="You'll receive" />
+          <PsbtRequestDetailsSectionHeader title={i18n.common.youReceive} />
           <PsbtAddressReceiveTotals
             showNativeSegwitTotal={isNativeSegwitTotalLessThanZero}
             showTaprootTotal={isTaprootTotalLessThanZero}

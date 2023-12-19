@@ -32,7 +32,7 @@ import { useCryptoCurrencyMarketData } from '@app/query/common/market-data/marke
 import { LeatherButton } from '@app/ui/components/button';
 
 import { useSendFormNavigate } from '../../hooks/use-send-form-navigate';
-
+import i18n from '@app/i18n'
 const symbol: CryptoCurrencies = 'BTC';
 
 function useBtcSendFormConfirmationState() {
@@ -124,7 +124,7 @@ export function BtcSendFormConfirmation() {
     };
   }
 
-  useRouteHeader(<ModalHeader hideActions defaultClose defaultGoBack title="Review" />);
+  useRouteHeader(<ModalHeader hideActions defaultClose defaultGoBack title={i18n.screen["sendAsset-review"]} />);
 
   return (
     <InfoCard data-testid={SendCryptoAssetSelectors.ConfirmationDetails}>
@@ -141,24 +141,24 @@ export function BtcSendFormConfirmation() {
 
       <Stack pb="space.06" px="space.06" width="100%">
         <InfoCardRow
-          title="To"
+          title={i18n.common.to}
           value={<FormAddressDisplayer address={recipient} />}
           data-testid={SendCryptoAssetSelectors.ConfirmationDetailsRecipient}
         />
         <InfoCardSeparator />
-        <InfoCardRow title="Total spend" value={totalSpend} />
-        <InfoCardRow title="Sending" value={sendingValue} />
+        <InfoCardRow title={i18n.screen["sendAsset-common.totalSpend"]} value={totalSpend} />
+        <InfoCardRow title={i18n.screen["sendAsset-common.sending"]} value={sendingValue} />
         <InfoCardRow
-          title="Fee"
+          title={i18n.common.fee}
           value={feeRowValue}
           data-testid={SendCryptoAssetSelectors.ConfirmationDetailsFee}
         />
-        {arrivesIn && <InfoCardRow title="Estimated confirmation time" value={arrivesIn} />}
+        {arrivesIn && <InfoCardRow title={i18n.screen["sendAsset-review.estimatedTime"]} value={arrivesIn} />}
       </Stack>
 
       <InfoCardFooter>
         <LeatherButton aria-busy={isBroadcasting} onClick={initiateTransaction} width="100%">
-          Confirm and send transaction
+          {i18n.button["sendAsset-review.confirmAndSend"]}
         </LeatherButton>
       </InfoCardFooter>
     </InfoCard>

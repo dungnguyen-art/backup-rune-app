@@ -6,6 +6,7 @@ import { analytics } from '@shared/utils/analytics';
 import { useThemeSwitcher } from '@app/common/theme-provider';
 import { LeatherButton } from '@app/ui/components/button';
 import { MegaphoneIcon } from '@app/ui/components/icons/megaphone-icon';
+import i18n from '@app/i18n'
 
 export function openFeedbackDialog() {
   void analytics.track('user_clicked_feedback_button');
@@ -43,7 +44,7 @@ export function FeedbackButton() {
     >
       <Flex>
         <MegaphoneIcon mr="space.01" mt="2px" />
-        Give feedback
+        {i18n.button.feedback}
       </Flex>
     </LeatherButton>
   );

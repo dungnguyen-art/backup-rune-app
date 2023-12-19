@@ -6,7 +6,7 @@ import { Box, Flex, HStack, Stack, styled } from 'leather-styles/jsx';
 import { LeatherButton } from '@app/ui/components/button';
 import { CheckmarkIcon } from '@app/ui/components/icons/checkmark-icon';
 import { LeatherIcon } from '@app/ui/components/icons/leather-icon';
-
+import i18n from '@app/i18n'
 interface ReasonToAllowDiagnosticsProps {
   text: string;
 }
@@ -38,11 +38,10 @@ export function AllowDiagnosticsLayout(props: AllowDiagnosticsLayoutProps) {
       >
         <LeatherIcon width="72px" />
         <styled.h1 textStyle="heading.03" mt={['space.05', 'space.08']}>
-          Help us improve
+          {i18n.common.helpUsImprove}
         </styled.h1>
         <styled.p mt={['space.03', 'space.05']} textStyle="heading.05">
-          Leather would like to gather deidentified service usage data to help improve the
-          experience of the wallet.
+          {i18n.common.allowDiagnostic}
         </styled.p>
 
         <Stack mt={['space.04', 'space.05']} textStyle="body.01">
@@ -58,7 +57,7 @@ export function AllowDiagnosticsLayout(props: AllowDiagnosticsLayoutProps) {
             onClick={() => onUserDenyDiagnostics()}
             data-testid={OnboardingSelectors.DenyAnalyticsBtn}
           >
-            Deny
+            {i18n.button.deny}
           </LeatherButton>
           <LeatherButton
             autoFocus
@@ -66,7 +65,7 @@ export function AllowDiagnosticsLayout(props: AllowDiagnosticsLayoutProps) {
             data-testid={OnboardingSelectors.AllowAnalyticsBtn}
             onClick={onUserAllowDiagnostics}
           >
-            Allow
+            {i18n.button.allow}
           </LeatherButton>
         </HStack>
       </Dialog.Content>

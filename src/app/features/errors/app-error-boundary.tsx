@@ -9,6 +9,7 @@ import { openGithubIssue } from '@app/features/errors/utils';
 import { useErrorStackTraceState } from '@app/store/ui/ui.hooks';
 import { CodeBlock } from '@app/ui/components/codeblock';
 import { Title } from '@app/ui/components/typography/title';
+import i18n from '@app/i18n'
 
 function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
   const [value] = useErrorStackTraceState();
@@ -17,7 +18,7 @@ function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
 
   return (
     <Stack gap="space.06" flexGrow={1}>
-      <Title>Something went wrong</Title>
+      <Title>{i18n.errorMessages.default}</Title>
       <Box className="error-codeblock" maxWidth="100vw" overflow="hidden">
         {value && (
           <CodeBlock
@@ -35,13 +36,13 @@ function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
       </Box>
       <Stack mt="auto" gap="space.04">
         <styled.button onClick={resetErrorBoundary} type="button">
-          Reload extension
+          {i18n.errorMessages.reloadExtension}
         </styled.button>
         <styled.button
           onClick={() => openGithubIssue({ message: error.message, stackTrace: value })}
           type="button"
         >
-          Report issue on GitHub
+          {i18n.errorMessages.reportIssueOnGitHub}
         </styled.button>
       </Stack>
     </Stack>

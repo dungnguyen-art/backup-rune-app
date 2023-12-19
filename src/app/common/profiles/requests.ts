@@ -7,15 +7,14 @@ import { TokenVerifier, decodeToken } from 'jsontokens';
 import { isString } from '@shared/utils';
 
 import { StacksAccount } from '@app/store/accounts/blockchain/stacks/stacks-account.models';
-
+import i18n from '@app/i18n';
 export function getProfileDataContentFromToken(requestToken: string): ProfileUpdatePayload {
   const token = decodeToken(requestToken);
   if (isString(token.payload)) throw new Error('error decoding json token');
   return token.payload as unknown as ProfileUpdatePayload;
 }
 
-const UNAUTHORIZED_PROFILE_UPDATE_REQUEST =
-  'The profile update request provided is not signed by this wallet.';
+const UNAUTHORIZED_PROFILE_UPDATE_REQUEST = i18n.common.UNAUTHORIZED
 
 /**
  * Verify a profile update request.

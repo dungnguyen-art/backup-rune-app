@@ -14,8 +14,10 @@ import { OnChooseFeeArgs } from '../bitcoin-fees-list/bitcoin-fees-list';
 import { TextInputField } from '../text-input-field';
 import { BitcoinCustomFeeFiat } from './bitcoin-custom-fee-fiat';
 import { useBitcoinCustomFee } from './hooks/use-bitcoin-custom-fee';
+import i18n from '@app/i18n';
 
 const feeInputLabel = 'sats/vB';
+
 
 interface BitcoinCustomFeeProps {
   amount: number;
@@ -58,10 +60,10 @@ export function BitcoinCustomFee({
   const validationSchema = yup.object({
     feeRate: yup
       .number()
-      .required('Fee is required')
-      .integer('Fee must be a whole number')
+      .required(i18n.validation.feeRequired)
+      .integer(i18n.validation.feeMustNumber)
       .test({
-        message: 'Fee is too high',
+        message: i18n.validation.feeTooHigh,
         test: value => {
           return value <= maxCustomFeeRate;
         },
@@ -115,7 +117,7 @@ export function BitcoinCustomFee({
                   />
                 </Stack>
               </Stack>
-              <PreviewButton isDisabled={!props.values.feeRate} text="Use custom fee" />
+              <PreviewButton isDisabled={!props.values.feeRate} text= {i18n.validation.useCustomFee} />
             </Stack>
           </Form>
         );

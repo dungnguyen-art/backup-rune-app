@@ -1,5 +1,5 @@
 import { RecipientField } from '@app/pages/send/send-crypto-asset-form/components/recipient-field';
-
+import i18n from '@app/i18n'
 interface RecipientFieldAddressProps {
   isSelectVisible: boolean;
   onClickLabelAction(): void;
@@ -14,10 +14,10 @@ export function RecipientFieldAddress({
   return (
     <RecipientField
       isDisabled={isSelectVisible}
-      labelAction="Select account"
+      labelAction={i18n.common.selectAccount}
       name="recipient"
       onClickLabelAction={onClickLabelAction}
-      placeholder="Enter recipient address"
+      placeholder={i18n.common.recipientAddressPlaceHolder}
       topInputOverlay={topInputOverlay}
     />
   );

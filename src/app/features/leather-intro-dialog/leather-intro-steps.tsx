@@ -12,6 +12,7 @@ import { LeatherButton } from '@app/ui/components/button';
 
 import { confettiConfig } from './confetti-config';
 import { useLeatherIntroDialogContext } from './leather-intro-dialog';
+import i18n from '@app/i18n'
 
 export function LeatherIntroDialog({ children }: HasChildren) {
   return (
@@ -48,11 +49,10 @@ export function LeatherIntroDialogPart1() {
           h="236px"
         />
         <styled.h1 textStyle="heading.02" mt="space.03">
-          Hiro wallet is rebranding
+          {i18n.common.leatherTitlePart1}
         </styled.h1>
         <styled.p textStyle="heading.05" mt="24px" mr="20px">
-          We're excited to share some big news with our valued users. Our beloved Hiro Wallet has
-          evolved into something even more incredible
+          {i18n.common.leatherIntroPart1}
         </styled.p>
         <Flex mt="48px">
           <LeatherButton
@@ -61,7 +61,7 @@ export function LeatherIntroDialogPart1() {
               setShowConfetti(true);
             }}
           >
-            {!showConfetti ? 'Click to reveal our new name' : 'Introducing…'}
+            {!showConfetti ? i18n.common.revealName : i18n.common.introducing}
           </LeatherButton>
         </Flex>
       </Box>
@@ -87,8 +87,7 @@ export function LeatherIntroDialogPart2() {
         </Inset>
       </Box>
       <Box mt="24px">
-        We're excited to introduce Leather, a new brand with one mission in mind: driving the global
-        transition to a digital economy built on Bitcoin.{' '}
+        {i18n.common.leatherIntroPart2}{' '}
         <styled.a
           href="https://leather.io/blog/leather-wallet-brand-launch"
           textDecoration="underline"
@@ -97,7 +96,7 @@ export function LeatherIntroDialogPart2() {
             openInNewTab('https://leather.io/blog/leather-wallet-brand-launch');
           }}
         >
-          Learn more →
+          {i18n.common.learnMoreWithIcon}
         </styled.a>
       </Box>
       <styled.span textStyle="caption.02" display="block" textAlign="left" mt="16px">
@@ -119,9 +118,10 @@ export function LeatherIntroDialogPart2() {
       <Stack gap="16px" mt="space.05">
         <LeatherButton onClick={context.onAcceptTerms}>Accept new terms</LeatherButton>
         <LeatherButton onClick={context.onRejectAndUninstall} variant="outline">
-          Refuse and uninstall
+          {i18n.common.refuseAndUninstall}
         </LeatherButton>
       </Stack>
     </Box>
   );
 }
+//i18n-variable

@@ -1,7 +1,7 @@
 import { Box, HStack } from 'leather-styles/jsx';
 
 import { LeatherButton } from '@app/ui/components/button';
-
+import i18n from '@app/i18n'
 interface PsbtRequestActionsProps {
   isLoading?: boolean;
   onCancel(): void;
@@ -21,10 +21,10 @@ export function PsbtRequestActions({ isLoading, onCancel, onSignPsbt }: PsbtRequ
     >
       <HStack gap="space.04" mt="space.05">
         <LeatherButton flexGrow={1} onClick={onCancel} variant="outline">
-          Cancel
+          {i18n.button.cancel}
         </LeatherButton>
         <LeatherButton flexGrow={1} aria-busy={isLoading} onClick={onSignPsbt}>
-          Confirm
+          {i18n.button.confirm}
         </LeatherButton>
       </HStack>
     </Box>

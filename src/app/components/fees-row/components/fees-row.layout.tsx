@@ -7,9 +7,8 @@ import { SponsoredLabel } from '@app/components/sponsored-label';
 import { Tooltip } from '@app/components/tooltip';
 import { WarningLabel } from '@app/components/warning-label';
 import { InfoIcon } from '@app/ui/components/icons/info-icon';
-
-const feesInfo =
-  'Higher fees increase the likelihood of your transaction getting confirmed before others. Click to learn more.';
+import i18n from '@app/i18n'
+const feesInfo = i18n.common.feeInfo;
 const url = 'https://hiro.so/questions/fee-estimates';
 
 interface FeesRowLayoutProps extends HstackProps {

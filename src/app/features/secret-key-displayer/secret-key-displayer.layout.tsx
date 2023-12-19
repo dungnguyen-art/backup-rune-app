@@ -11,6 +11,7 @@ import { EyeSlashIcon } from '@app/ui/components/icons/eye-slash-icon';
 
 import { SecretKeyGrid } from '../../components/secret-key/secret-key-grid';
 import { SecretKeyWord } from './components/secret-key-word';
+import i18n from '@app/i18n'
 
 interface SecretKeyDisplayerLayoutProps {
   hasCopied: boolean;
@@ -48,7 +49,7 @@ export function SecretKeyDisplayerLayout(props: SecretKeyDisplayerLayoutProps) {
           onClick={() => setShowSecretKey(!showSecretKey)}
         >
           {showSecretKey ? <EyeSlashIcon size="20px" /> : <EyeIcon size="20px" />}
-          <styled.p textStyle="body.02">{showSecretKey ? 'Hide key' : 'Show key'}</styled.p>
+          <styled.p textStyle="body.02">{showSecretKey ? i18n.button.hideKey : i18n.button.showKey}</styled.p>
         </LeatherButton>
         <LeatherButton
           variant="outline"
@@ -63,7 +64,7 @@ export function SecretKeyDisplayerLayout(props: SecretKeyDisplayerLayoutProps) {
           onClick={!hasCopied ? onCopyToClipboard : undefined}
         >
           <CopyIcon />
-          <styled.p textStyle="body.02">{!hasCopied ? ' Copy' : 'Copied!'}</styled.p>
+          <styled.p textStyle="body.02">{!hasCopied ? i18n.common.copy : i18n.common.copied}</styled.p>
         </LeatherButton>
       </Flex>
       <LeatherButton
@@ -71,7 +72,7 @@ export function SecretKeyDisplayerLayout(props: SecretKeyDisplayerLayoutProps) {
         data-testid={OnboardingSelectors.BackUpSecretKeyBtn}
         onClick={onBackedUpSecretKey}
       >
-        I've backed it up
+          {i18n.button.backedUp}
       </LeatherButton>
     </>
   );

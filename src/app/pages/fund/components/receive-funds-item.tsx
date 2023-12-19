@@ -7,6 +7,7 @@ import { CryptoCurrencies } from '@shared/models/currencies.model';
 
 import { FundAccountTile } from './fund-account-tile';
 import { BitcoinIconComponent, StacksIconComponent } from './icon-components';
+import i18n from '@app/i18n'
 
 interface CryptoDescription {
   title: string;
@@ -15,11 +16,11 @@ interface CryptoDescription {
 
 const cryptoDescriptions: Record<CryptoCurrencies, CryptoDescription> = {
   STX: {
-    title: 'Receive STX from a friend or deposit from a separate wallet',
+    title: i18n.common.cryptoDescriptionsSTX,
     IconComponent: StacksIconComponent,
   },
   BTC: {
-    title: 'Receive BTC from a friend or deposit from a separate wallet',
+    title: i18n.common.cryptoDescriptionsBTC,
     IconComponent: BitcoinIconComponent,
   },
 };

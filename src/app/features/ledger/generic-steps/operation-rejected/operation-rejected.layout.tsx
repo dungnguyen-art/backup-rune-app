@@ -5,7 +5,7 @@ import { LeatherButton } from '@app/ui/components/button';
 
 import { LedgerTitle } from '../../components/ledger-title';
 import { LedgerWrapper } from '../../components/ledger-wrapper';
-
+import i18n from '@app/i18n'
 interface LedgerOperationRejectedLayoutProps {
   description: string;
   onClose(): void;
@@ -21,7 +21,7 @@ export function LedgerOperationRejectedLayout({
       </Box>
       <LedgerTitle my="space.05">{description}</LedgerTitle>
       <LeatherButton fullWidth mb="space.01" onClick={onClose} variant="outline">
-        Close
+          {i18n.button.close}
       </LeatherButton>
     </LedgerWrapper>
   );

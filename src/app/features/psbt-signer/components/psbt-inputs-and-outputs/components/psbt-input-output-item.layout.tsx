@@ -6,6 +6,7 @@ import { Flag } from '@app/components/layout/flag';
 import { Tooltip } from '@app/components/tooltip';
 import { LeatherButton } from '@app/ui/components/button';
 import { CopyIcon } from '@app/ui/components/icons/copy-icon';
+import i18n from '@app/i18n'
 
 interface PsbtInputOutputItemLayoutProps {
   address: string;
@@ -36,7 +37,7 @@ export function PsbtInputOutputItemLayout({
           <Tooltip
             disabled={!addressHoverLabel}
             hideOnClick={false}
-            label={hasCopied ? 'Copied!' : addressHoverLabel}
+            label={hasCopied ? i18n.common.copied : addressHoverLabel}
             labelProps={{ wordWrap: 'break-word' }}
             maxWidth="230px"
             placement="bottom"

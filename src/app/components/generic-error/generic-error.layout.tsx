@@ -6,6 +6,7 @@ import { Flex, FlexProps, HStack, styled } from 'leather-styles/jsx';
 import { openInNewTab } from '@app/common/utils/open-in-new-tab';
 import { LeatherButton } from '@app/ui/components/button';
 import { ExternalLinkIcon } from '@app/ui/components/icons/external-link-icon';
+import i18n from "@app/i18n";
 
 const supportUrl =
   'https://wallet.hiro.so/wallet-faq/where-can-i-find-support-for-the-stacks-wallet';
@@ -51,7 +52,7 @@ export function GenericErrorLayout(props: GenericErrorProps) {
         {helpTextList}
         <styled.li mt="space.04" textAlign="left">
           <HStack alignItems="center">
-            <styled.span textStyle="label.02">Reach out to our support team</styled.span>
+            <styled.span textStyle="label.02">{i18n.errorMessages["swap-broadcastError.support"]}</styled.span>
             <styled.button onClick={() => openInNewTab(supportUrl)} type="button">
               <ExternalLinkIcon />
             </styled.button>
@@ -59,7 +60,7 @@ export function GenericErrorLayout(props: GenericErrorProps) {
         </styled.li>
       </styled.ul>
       <LeatherButton fontSize="14px" mt="space.05" onClick={onClose} variant="link">
-        Close window
+          {i18n.button["swap.closeWindow"]}
       </LeatherButton>
     </Flex>
   );

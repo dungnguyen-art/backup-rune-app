@@ -10,6 +10,7 @@ import { Brc20Token } from '@app/query/bitcoin/ordinals/brc20/brc20-tokens.query
 import { useCurrentAccountNativeSegwitAddressIndexZero } from '@app/store/accounts/blockchain/bitcoin/native-segwit-account.hooks';
 
 import { Brc20AssetListLayout } from './components/brc20-token-asset-list.layout';
+import i18n from '@app/i18n'
 
 export function Brc20TokenAssetList(props: { brc20Tokens?: Brc20Token[] }) {
   const navigate = useNavigate();
@@ -35,7 +36,7 @@ export function Brc20TokenAssetList(props: { brc20Tokens?: Brc20Token[] }) {
           disabled={hasPositiveBtcBalanceForFees}
           key={token.tick}
           placement="top"
-          label={'Not enough BTC in balance'}
+          label={i18n.common.notEnoughBTC}
           hideOnClick={false}
         >
           <Brc20TokenAssetItem

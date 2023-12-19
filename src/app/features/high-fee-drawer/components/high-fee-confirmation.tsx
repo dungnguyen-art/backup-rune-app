@@ -12,6 +12,7 @@ import { openInNewTab } from '@app/common/utils/open-in-new-tab';
 import { LeatherButton } from '@app/ui/components/button';
 import { Caption } from '@app/ui/components/typography/caption';
 import { Title } from '@app/ui/components/typography/title';
+import i18n from '@app/i18n'
 
 export function HighFeeConfirmation({ learnMoreUrl }: { learnMoreUrl: string }) {
   const { handleSubmit, values } = useFormikContext<
@@ -22,12 +23,15 @@ export function HighFeeConfirmation({ learnMoreUrl }: { learnMoreUrl: string }) 
   return (
     <Stack px="space.05" gap="space.05" pb="space.06">
       <Title>
-        Are you sure you want to pay {values.fee} {values.feeCurrency} in fees for this transaction?
+        {i18n.formatString(i18n.confirmation["highFee.title"], {
+          fee: values.fee,
+          feeCurrency: values.feeCurrency
+        })}
       </Title>
       <Caption>
-        This action cannot be undone and the fees won't be returned, even if the transaction fails.{' '}
+        {i18n.confirmation.highFeeConfirmation}{' '}
         <LeatherButton fontSize="14px" onClick={() => openInNewTab(learnMoreUrl)} variant="link">
-          Learn more
+          {i18n.common.learnMore}
         </LeatherButton>
       </Caption>
       <HStack mt="space.05">
@@ -36,12 +40,14 @@ export function HighFeeConfirmation({ learnMoreUrl }: { learnMoreUrl: string }) 
           width="50%"
           variant="outline"
         >
-          Edit fee
+          {i18n.button.editFee}
         </LeatherButton>
         <LeatherButton onClick={() => handleSubmit()} width="50%" type="submit">
-          Yes, I'm sure
+          {i18n.button.yesImSure}
         </LeatherButton>
       </HStack>
     </Stack>
   );
 }
+
+//i18n-variable

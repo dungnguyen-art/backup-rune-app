@@ -23,7 +23,7 @@ import { InscriptionPreview } from '@app/components/inscription-preview-card/com
 import { CheckmarkIcon } from '@app/ui/components/icons/checkmark-icon';
 import { CopyIcon } from '@app/ui/components/icons/copy-icon';
 import { ExternalLinkIcon } from '@app/ui/components/icons/external-link-icon';
-
+import i18n from '@app/i18n'
 import { InscriptionPreviewCard } from '../../../components/inscription-preview-card/inscription-preview-card';
 
 function useSendInscriptionSummaryState() {
@@ -57,7 +57,7 @@ export function SendInscriptionSummary() {
 
   function onClickCopy() {
     onCopy();
-    toast.success('ID copied!');
+    toast.success(i18n.notification.IDcopied);
   }
 
   return (
@@ -83,9 +83,9 @@ export function SendInscriptionSummary() {
           <InfoCardBtn
             onClick={onClickLink}
             icon={<ExternalLinkIcon size="14px" />}
-            label="View details"
+            label={i18n.button.viewDetails}
           />
-          <InfoCardBtn onClick={onClickCopy} icon={<CopyIcon size="14px" />} label="Copy ID" />
+          <InfoCardBtn onClick={onClickCopy} icon={<CopyIcon size="14px" />} label={i18n.button.copyID} />
         </HStack>
       </InfoCard>
     </BaseDrawer>

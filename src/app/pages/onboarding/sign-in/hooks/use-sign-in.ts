@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { validateMnemonic } from '@scure/bip39';
 import { wordlist } from '@scure/bip39/wordlists/english';
-
+import i18n from '@app/i18n'
 import { RouteUrls } from '@shared/route-urls';
 
 import { useAnalytics } from '@app/common/hooks/analytics/use-analytics';
@@ -31,7 +31,7 @@ export function useSignIn() {
 
   const handleSetError = useCallback(
     (
-      message = 'Incorrect Secret Key. Make sure it is 12 or 24 words with spaces between words.'
+      message = i18n.common.incorrectSecretKey
     ) => {
       setError(message);
       setIsIdle();

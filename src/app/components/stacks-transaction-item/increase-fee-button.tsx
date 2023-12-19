@@ -1,7 +1,7 @@
 import { HStack, styled } from 'leather-styles/jsx';
 
 import { ChevronsRightIcon } from '@app/ui/components/icons/chevrons-right-icon';
-
+import i18n from '@app/i18n'
 interface IncreaseFeeButtonProps {
   isEnabled?: boolean;
   isHovered: boolean;
@@ -33,7 +33,7 @@ export function IncreaseFeeButton(props: IncreaseFeeButtonProps) {
     >
       <HStack gap="space.00">
         <ChevronsRightIcon color="stacks" mr="3px" />
-        <styled.span textStyle="label.03">Increase fee</styled.span>
+        <styled.span textStyle="label.03">{i18n.common.increaseFee}</styled.span>
       </HStack>
     </styled.button>
   );

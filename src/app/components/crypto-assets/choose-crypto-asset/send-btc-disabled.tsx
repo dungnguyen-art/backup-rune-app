@@ -7,7 +7,7 @@ import { RouteUrls } from '@shared/route-urls';
 import { openInNewTab } from '@app/common/utils/open-in-new-tab';
 import { GenericError } from '@app/components/generic-error/generic-error';
 import { ExternalLinkIcon } from '@app/ui/components/icons/external-link-icon';
-
+import i18n from '@app/i18n'
 const body = 'Sending bitcoin is temporarily disabled';
 const helpTextList = [
   <styled.li mt="space.04" key={1}>
@@ -19,7 +19,7 @@ const helpTextList = [
     </HStack>
   </styled.li>,
 ];
-const title = 'Temporarily disabled';
+const title = i18n.common.sendDisabled;
 
 export function SendBtcDisabled() {
   const navigate = useNavigate();

@@ -8,7 +8,7 @@ import { RouteUrls } from '@shared/route-urls';
 import { useLocationState } from '@app/common/hooks/use-location-state';
 import { LoadingSpinner } from '@app/components/loading-spinner';
 import { Tabs } from '@app/components/tabs';
-
+import i18n from '@app/i18n'
 interface HomeTabsProps {
   children: React.ReactNode;
 }
@@ -20,10 +20,10 @@ export function HomeTabs({ children }: HomeTabsProps) {
 
   const tabs = useMemo(
     () => [
-      { slug: RouteUrls.Home, label: 'assets' },
-      { slug: `${RouteUrls.Home}${RouteUrls.Activity}`, label: 'activity' },
+      { slug: RouteUrls.Home, label: i18n.common.assetsTab },
+      { slug: `${RouteUrls.Home}${RouteUrls.Activity}`, label: i18n.common.activityTab },
     ],
-    []
+    [i18n.common.assetsTab, i18n.common.activityTab]
   );
   const getActiveTab = useCallback(() => {
     const path = backgroundLocation ? backgroundLocation.pathname : location?.pathname;

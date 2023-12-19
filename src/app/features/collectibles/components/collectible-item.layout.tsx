@@ -5,6 +5,7 @@ import { token } from 'leather-styles/tokens';
 import { useHover } from 'use-events';
 
 import { CollectibleHover } from './collectible-hover';
+import i18n from '@app/i18n'
 
 export interface CollectibleItemLayoutProps {
   children: ReactNode;
@@ -103,7 +104,7 @@ export function CollectibleItemLayout({
             textStyle="caption.01"
             type="button"
           >
-            Send
+            {i18n.common.send}
           </styled.button>
         </Box>
       ) : (

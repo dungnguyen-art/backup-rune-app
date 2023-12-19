@@ -4,6 +4,7 @@ import isToday from 'dayjs/plugin/isToday';
 import isYesterday from 'dayjs/plugin/isYesterday';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
+import i18n from '@app/i18n';
 
 dayjs.extend(isToday);
 dayjs.extend(isYesterday);
@@ -23,8 +24,8 @@ export function isoDateToLocalDate(isoDate: string): string {
 // txDate is of the form YYYY-MM-DD
 export function displayDate(txDate: string): string {
   const date = dayjs(txDate);
-  if (date.isToday()) return 'Today';
-  if (date.isYesterday()) return 'Yesterday';
+  if (date.isToday()) return i18n.common.today;
+  if (date.isYesterday()) return i18n.common.yesterday;
   if (dayjs().isSame(date, 'year')) {
     return date.format('MMM Do');
   }

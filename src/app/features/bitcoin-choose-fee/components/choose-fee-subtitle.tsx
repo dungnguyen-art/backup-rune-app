@@ -1,11 +1,13 @@
 import { styled } from 'leather-styles/jsx';
-
+import i18n from '@app/i18n'
 export function ChooseFeeSubtitle({ isSendingMax }: { isSendingMax: boolean }) {
   const subtitle = isSendingMax ? (
-    'Chosen fee will affect your sending amount'
+    i18n.screen["sendAsset-chooseFee.brief"]
   ) : (
     <>
-      Fees are deducted from your balance <br /> and will not affect your sending amount
+      {i18n.formatString(i18n.screen["sendAsset-chooseFee"], {
+        htmlTag: <br/>
+      })}
     </>
   );
 
@@ -15,3 +17,4 @@ export function ChooseFeeSubtitle({ isSendingMax }: { isSendingMax: boolean }) {
     </styled.span>
   );
 }
+

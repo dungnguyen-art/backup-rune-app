@@ -1,6 +1,6 @@
 import { BitcoinContractRequestSelectors } from '@tests/selectors/bitcoin-contract-request.selectors';
 import { Box, HStack } from 'leather-styles/jsx';
-
+import i18n from '@app/i18n'
 import { useBtcAssetBalance } from '@app/common/hooks/balance/btc/use-btc-balance';
 import { LeatherButton } from '@app/ui/components/button';
 
@@ -39,7 +39,7 @@ export function BitcoinContractRequestActions({
           onClick={onRejectBitcoinContractOffer}
           variant="outline"
         >
-          Reject
+          {i18n.button.reject}
         </LeatherButton>
         <LeatherButton
           aria-busy={isLoading}
@@ -48,7 +48,7 @@ export function BitcoinContractRequestActions({
           disabled={!canAccept}
           onClick={onAcceptBitcoinContractOffer}
         >
-          Accept
+          {i18n.button.accept}
         </LeatherButton>
       </HStack>
     </Box>

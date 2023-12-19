@@ -23,6 +23,7 @@ import {
   usePendingBrc20Transfers,
 } from '@app/store/ordinals/ordinals.slice';
 import { Caption } from '@app/ui/components/typography/caption';
+import i18n from '@app/i18n'
 
 function StatusIcon({ status }: { status: OrdinalsbotInscriptionStatus }) {
   switch (status) {
@@ -41,21 +42,21 @@ function StatusIcon({ status }: { status: OrdinalsbotInscriptionStatus }) {
 function StatusLabel({ status }: { status: OrdinalsbotInscriptionStatus }) {
   switch (status) {
     case 'pending':
-      return <>Paying for transfer inscription…</>;
+      return <>{i18n.common.payingBrc}</>;
     case 'paid':
       return (
-        <Tooltip label="Your funds have been received. Your inscription will be available shortly.">
-          <>Creating transfer inscription…</>
+        <Tooltip label={i18n.common.tooltipLabelCreatingBrc}>
+          <>{i18n.common.creatingBrc}</>
         </Tooltip>
       );
     case 'waiting-for-indexer':
       return (
-        <Tooltip label="Inscription complete, awaiting metadata">
-          <>Receiving transfer inscription…</>
+        <Tooltip label={i18n.common.tooltipLabelReceivingBrc}>
+          <>{i18n.common.receivingBrc}</>
         </Tooltip>
       );
     case 'ready':
-      return <>Ready to transfer</>;
+      return <>{i18n.common.readyTransfer}</>;
     default:
       return null;
   }
@@ -73,7 +74,7 @@ export function PendingBrc20TransferList() {
   return (
     <Flex flexDirection="column" justifyContent="space-between" flex={1} my="space.04">
       <Flex columnGap="8px">
-        <Caption>Pending BRC-20 transfers</Caption>
+        <Caption>{i18n.common.pendingBrcTransfer}</Caption>
       </Flex>
       <Stack mt="space.02">
         {transferOrders.map(order => (

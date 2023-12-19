@@ -10,6 +10,7 @@ import {
 import { OrdinalIcon } from '@app/ui/components/icons/ordinal-icon';
 
 import { PsbtAddressTotalItem } from './psbt-address-total-item';
+import i18n from '@app/i18n'
 
 interface PsbtInscriptionProps {
   inscription: Inscription;
@@ -22,15 +23,15 @@ export function PsbtInscription({ inscription }: PsbtInscriptionProps) {
     return (
       <PsbtAddressTotalItem
         image={<OrdinalIcon />}
-        title="Inscription not found"
-        value="# Unknown"
+        title={i18n.common.inscriptionNotFound}
+        value={i18n.common.unknown}
       />
     );
 
   return (
     <PsbtAddressTotalItem
       image={<InscriptionPreview inscription={supportedInscription} height="40px" width="40px" />}
-      title="Inscription"
+      title={i18n.common.inscription}
       value={`#${inscription?.number}`}
       valueAction={() => openInNewTab(createInscriptionInfoUrl(inscription?.id))}
     />

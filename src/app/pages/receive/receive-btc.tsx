@@ -1,6 +1,6 @@
 import toast from 'react-hot-toast';
 import { useLocation } from 'react-router-dom';
-
+import i18n from '@app/i18n'
 import get from 'lodash.get';
 
 import { useAnalytics } from '@app/common/hooks/analytics/use-analytics';
@@ -30,7 +30,7 @@ export function ReceiveBtcModal({ type = 'btc' }: ReceiveBtcModalType) {
 
   function copyToClipboard() {
     void analytics.track('copy_btc_address_to_clipboard');
-    toast.success('Copied to clipboard!');
+    toast.success(i18n.notification.copiedToClipboard);
     onCopy();
   }
 

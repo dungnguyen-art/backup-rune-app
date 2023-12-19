@@ -13,12 +13,13 @@ import { SwapDetails } from '../components/swap-details/swap-details';
 import { SwapFooterLayout } from '../components/swap-footer.layout';
 import { useSwapContext } from '../swap.context';
 import { SwapReviewLayout } from './swap-review.layout';
+import i18n from "@app/i18n";
 
 export function SwapReview() {
   const { onSubmitSwap } = useSwapContext();
   const { isLoading } = useLoading(LoadingKeys.SUBMIT_SWAP_TRANSACTION);
 
-  useRouteHeader(<ModalHeader defaultGoBack hideActions title="Review" />, true);
+  useRouteHeader(<ModalHeader defaultGoBack hideActions title={i18n.common.review} />, true);
 
   return (
     <>

@@ -17,7 +17,7 @@ import { CollectibleAsset } from './components/collectible-asset';
 import { useSendInscriptionState } from './components/send-inscription-container';
 import { useSendInscriptionForm } from './hooks/use-send-inscription-form';
 import { SendInscriptionFormLoader } from './send-indcription-form-loader';
-
+import i18n from '@app/i18n'
 export const recipeintFieldName = 'recipient';
 
 export function SendInscriptionForm() {
@@ -37,12 +37,12 @@ export function SendInscriptionForm() {
       onSubmit={chooseTransactionFee}
     >
       <Form>
-        <BaseDrawer title="Send" enableGoBack isShowing onClose={() => navigate(RouteUrls.Home)}>
+        <BaseDrawer title={i18n.common.send} enableGoBack isShowing onClose={() => navigate(RouteUrls.Home)}>
           <SendInscriptionFormLoader isLoading={isCheckingFees}>
             <Box display="flex" flexDirection="column" px="space.06" pb="space.04">
               <InscriptionPreviewCard
                 image={<InscriptionPreview inscription={inscription} />}
-                subtitle="Ordinal inscription"
+                subtitle='Ordinal inscription'
                 title={inscription.title}
               />
               <Box mt={['space.04', 'space.06', '100px']}>
@@ -50,13 +50,13 @@ export function SendInscriptionForm() {
                   <CollectibleAsset icon={<OrdinalIcon />} name="Ordinal inscription" />
                   <RecipientField
                     name={recipeintFieldName}
-                    label="To"
-                    placeholder="Enter recipient address"
+                    label={i18n.common.to}
+                    placeholder={i18n.common.enterRecipientAddress}
                   />
                 </Flex>
               </Box>
               {currentError && <ErrorLabel>{currentError}</ErrorLabel>}
-              <LeatherButton type="submit">Continue</LeatherButton>
+              <LeatherButton type="submit">{i18n.button.continue}</LeatherButton>
             </Box>
           </SendInscriptionFormLoader>
         </BaseDrawer>

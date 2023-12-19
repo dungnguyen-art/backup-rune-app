@@ -6,7 +6,7 @@ import { useAnalytics } from '@app/common/hooks/analytics/use-analytics';
 import { PlusIcon } from '@app/ui/components/icons/plus-icon';
 
 import { CollectibleItemLayout } from './collectible-item.layout';
-
+import i18n from '@app/i18n'
 export function AddCollectible() {
   const navigate = useNavigate();
   const analytics = useAnalytics();
@@ -23,8 +23,8 @@ export function AddCollectible() {
         });
       }}
       showBorder
-      subtitle="Collectible"
-      title="Add new"
+      subtitle={i18n.common.collectible}
+      title={i18n.common.addNewCollectible}
     >
       <PlusIcon size="xl" />
     </CollectibleItemLayout>

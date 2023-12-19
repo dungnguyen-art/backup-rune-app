@@ -1,11 +1,11 @@
 import { useLocation } from 'react-router-dom';
 
 import get from 'lodash.get';
-
+import i18n from '@app/i18n'
 import { GenericError, GenericErrorListItem } from '@app/components/generic-error/generic-error';
 
 const helpTextList = [
-  <GenericErrorListItem key={1} text="Please report issue to requesting app" />,
+  <GenericErrorListItem key={1} text={i18n.common.reportIssue} />,
 ];
 
 function useRequestErrorState() {

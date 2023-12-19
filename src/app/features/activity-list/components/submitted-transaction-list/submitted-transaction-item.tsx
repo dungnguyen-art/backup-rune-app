@@ -11,6 +11,7 @@ import { Title } from '@app/ui/components/typography/title';
 
 import { SubmittedTransactionIcon } from './submitted-transaction-icon';
 import { getSubmittedTransactionDetails } from './submitted-transaction-list.utils';
+import i18n from '@app/i18n'
 
 interface SubmittedTransactionItemProps {
   transaction: StacksTransaction;
@@ -54,9 +55,9 @@ export function SubmittedTransactionItem({ transaction, txId }: SubmittedTransac
               <Caption>{caption}</Caption>
               <Tooltip
                 placement="bottom"
-                label={'Transaction broadcasted, but not yet in the mempool'}
+                label={i18n.common.submittedTransactionItem}
               >
-                <Caption>Submitted</Caption>
+                <Caption>{i18n.errorMessages.submitted}</Caption>
               </Tooltip>
             </Stack>
           </Stack>

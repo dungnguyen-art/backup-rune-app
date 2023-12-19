@@ -5,18 +5,19 @@ import { Money } from '@shared/models/money.model';
 import { formatMoney } from '@app/common/money/format-money';
 import { Tooltip } from '@app/components/tooltip';
 import { InfoIcon } from '@app/ui/components/icons/info-icon';
+import i18n from '@app/i18n'
 
 export function AvailableBalance(props: { balance: Money; balanceTooltipLabel?: string }) {
   const {
     balance,
-    balanceTooltipLabel = 'Amount that is immediately available for use after taking into account any pending transactions or holds placed on your account by the protocol.',
+    balanceTooltipLabel = i18n.common.balanceTooltipLabel,
   } = props;
 
   return (
     <Flex alignItems="center" justifyContent="space-between">
       <HStack gap="space.01">
         <styled.span color="accent.text-subdued" textStyle="caption.01">
-          Available balance
+          {i18n.common.availableBalance}
         </styled.span>
         <Tooltip label={balanceTooltipLabel} placement="top">
           <Box>

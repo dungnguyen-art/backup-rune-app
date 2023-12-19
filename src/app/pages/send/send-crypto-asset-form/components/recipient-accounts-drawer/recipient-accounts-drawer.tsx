@@ -7,7 +7,7 @@ import { Box } from 'leather-styles/jsx';
 import { BaseDrawer } from '@app/components/drawer/base-drawer';
 import { useFilteredBitcoinAccounts } from '@app/store/accounts/blockchain/bitcoin/bitcoin.ledger';
 import { useStacksAccounts } from '@app/store/accounts/blockchain/stacks/stacks-account.hooks';
-
+import i18n from '@app/i18n'
 import { AccountListItem } from './account-list-item';
 
 export const RecipientAccountsDrawer = memo(() => {
@@ -22,7 +22,7 @@ export const RecipientAccountsDrawer = memo(() => {
   if (stacksAddressesNum === 0 && btcAddressesNum === 0) return null;
 
   return (
-    <BaseDrawer title="My accounts" isShowing onClose={onGoBack}>
+    <BaseDrawer title={i18n.common.myAccounts} isShowing onClose={onGoBack}>
       <Box mb="space.05" mx={['space.04', 'space.06']}>
         <Virtuoso
           height="72px"

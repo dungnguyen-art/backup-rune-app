@@ -6,7 +6,7 @@ import { HStack, HstackProps, styled } from 'leather-styles/jsx';
 import { useTransactionError } from '@app/features/stacks-transaction-request/hooks/use-transaction-error';
 import { TransactionErrorReason } from '@app/features/stacks-transaction-request/transaction-error/transaction-error';
 import { ErrorIcon } from '@app/ui/components/icons/error-icon';
-
+import i18n from '@app/i18n'
 function MinimalErrorMessageSuspense(props: HstackProps) {
   const error = useTransactionError();
 
@@ -16,16 +16,16 @@ function MinimalErrorMessageSuspense(props: HstackProps) {
     if (error) {
       switch (error) {
         case TransactionErrorReason.Unauthorized:
-          return 'Unauthorized request';
+          return i18n.common.transactionErrorReasonUnauthorized;
         case TransactionErrorReason.NoContract:
-          return 'Contract not found';
+          return i18n.common.transactionErrorReasonNoContract;
         case TransactionErrorReason.InvalidContractAddress:
-          return 'Invalid contract address';
+          return i18n.common.transactionErrorReasonInvalidContractAddress;
         case TransactionErrorReason.StxTransferInsufficientFunds:
         case TransactionErrorReason.FeeInsufficientFunds:
-          return 'Insufficient balance';
+          return i18n.common.transactionErrorReasonFeeInsufficientFunds;
         case TransactionErrorReason.Generic:
-          return 'Something went wrong';
+          return i18n.errorMessages.default;
       }
     }
     return null;

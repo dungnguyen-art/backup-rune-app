@@ -7,11 +7,11 @@ import { noop } from '@shared/utils';
 import { store } from '@app/store';
 import { settingsActions } from '@app/store/settings/settings.actions';
 import { useUserSelectedTheme } from '@app/store/settings/settings.selectors';
-
+import i18n from '@app/i18n';
 export const themeLabelMap = {
-  light: 'Light',
-  dark: 'Dark',
-  system: 'System',
+  light: i18n.common.themeLight,
+  dark: i18n.common.themeDark,
+  system: i18n.common.themeSystem,
 };
 
 export type UserSelectedTheme = keyof typeof themeLabelMap;

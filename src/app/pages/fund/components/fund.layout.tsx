@@ -4,6 +4,7 @@ import { CryptoCurrencies } from '@shared/models/currencies.model';
 
 import { HasChildren } from '@app/common/has-children';
 
+import i18n from '@app/i18n'
 const nameMap: Record<CryptoCurrencies, { name: string; symbol: string }> = {
   BTC: {
     name: 'Bitcoin',
@@ -42,7 +43,7 @@ export function FundLayout({ symbol, children }: FundLayoutProps) {
           textAlign={['left', 'center']}
           textStyle={['heading.03', 'heading.02']}
         >
-          Let's get funds into your wallet
+          {i18n.screen["buyAsset-chooseAsset.getFund"]}
         </styled.h1>
 
         <styled.span
@@ -51,9 +52,10 @@ export function FundLayout({ symbol, children }: FundLayoutProps) {
           maxWidth="544px"
           textAlign={['left', 'center']}
         >
-          Choose an exchange to fund your account with {name} ({nameAbbr}) or deposit from
-          elsewhere. Exchanges with “Fast checkout” make it easier to purchase {nameAbbr} for direct
-          deposit into your wallet with a credit card.
+          {i18n.formatString(i18n.screen["buyAsset-chooseAsset.brief"], {
+            name: name,
+            nameAbbr: nameAbbr
+          })}
         </styled.span>
       </Stack>
       {children}

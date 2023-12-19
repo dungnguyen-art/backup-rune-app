@@ -4,7 +4,7 @@ import { useScrollLock } from '@app/common/hooks/use-scroll-lock';
 import { BaseDrawer } from '@app/components/drawer/base-drawer';
 
 import { LedgerRequestKeysContext, LedgerRequestKeysProvider } from './ledger-request-keys.context';
-
+import i18n from '@app/i18n'
 interface RequestKeysFlowProps {
   context: LedgerRequestKeysContext;
   isActionCancellableByUser: boolean;
@@ -25,7 +25,7 @@ export function RequestKeysFlow({
         isWaitingOnPerformedAction={isActionCancellableByUser}
         onClose={onCancelConnectLedger ? onCancelConnectLedger : () => navigate('../')}
         pauseOnClickOutside
-        waitingOnPerformedActionMessage="Ledger device in use"
+        waitingOnPerformedActionMessage={i18n.common.ledgerInUse}
       >
         <Outlet />
       </BaseDrawer>

@@ -9,6 +9,7 @@ import { Caption } from '@app/ui/components/typography/caption';
 import { Capitalize } from '@app/ui/utils/capitalize';
 
 import { useLedgerRequestKeysContext } from '../ledger-request-keys.context';
+import i18n from "@app/i18n";
 
 export function AddMoreKeysLayout() {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ export function AddMoreKeysLayout() {
           Connect <Capitalize>{addKeysChain}</Capitalize>
         </LeatherButton>
         <LeatherButton variant="outline" onClick={() => navigate('/')}>
-          No, continue to Leather
+            {i18n.button["addMoreKey.continueToLeather"]}
         </LeatherButton>
       </Stack>
 
@@ -38,3 +39,5 @@ export function AddMoreKeysLayout() {
     </LedgerWrapper>
   );
 }
+
+//i18n-variable

@@ -11,12 +11,9 @@ import { LeatherButton } from '@app/ui/components/button';
 
 import { ErrorLabel } from './error-label';
 import { TwoColumnLayout } from './secret-key/two-column.layout';
+import i18n from '@app/i18n'
 
-const waitingMessages: WaitingMessages = {
-  '2': 'Verifying password…',
-  '10': 'Still working…',
-  '20': 'Almost there',
-};
+
 
 interface RequestPasswordProps {
   onSuccess(): void;
@@ -24,6 +21,11 @@ interface RequestPasswordProps {
   caption?: string;
 }
 export function RequestPassword({ title, caption, onSuccess }: RequestPasswordProps) {
+  const waitingMessages: WaitingMessages = {
+    '2': i18n.common.waitingMsgVerifying,
+    '10': i18n.common.waitingMsgStillWorking,
+    '20': i18n.common.waitingMsgStillAlmostThere,
+  };
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const { unlockWallet } = useKeyActions();
@@ -76,7 +78,7 @@ export function RequestPassword({ title, caption, onSuccess }: RequestPasswordPr
               hideBelow="sm"
               textAlign="center"
             >
-              Your password
+              {i18n.common.yourPassword}
             </styled.h2>
             <Stack gap="space.04" alignItems="center">
               <styled.input
@@ -95,7 +97,7 @@ export function RequestPassword({ title, caption, onSuccess }: RequestPasswordPr
                 }}
                 onKeyUp={buildEnterKeyEvent(submit)}
                 p="space.04"
-                placeholder="Enter your password"
+                placeholder={i18n.common.placeHolderEnterPassword}
                 ring="none"
                 type="password"
                 textStyle="body.02"
@@ -111,7 +113,7 @@ export function RequestPassword({ title, caption, onSuccess }: RequestPasswordPr
               onClick={submit}
               mt={['space.11', 'space.05']}
             >
-              Continue
+              {i18n.button.continue}
             </LeatherButton>
           </>
         }

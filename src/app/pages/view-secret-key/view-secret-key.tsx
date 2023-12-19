@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
-
+import i18n from '@app/i18n'
 import { RouteUrls } from '@shared/route-urls';
 
 import { useAnalytics } from '@app/common/hooks/analytics/use-analytics';
@@ -37,14 +37,11 @@ export function ViewSecretKey() {
   return (
     <>
       <RequestPassword
-        title={
-          <>
-            View
-            <br />
-            Secret Key
-          </>
-        }
-        caption="Enter the password you set on this device"
+        title=
+            {i18n.formatString(i18n.common.viewSecretKey, {
+                htmlTag: <br/>
+            })}
+        caption={i18n.common.requestPassworkCaption}
         onSuccess={() => setShowSecretKey(true)}
       />
       <Outlet />

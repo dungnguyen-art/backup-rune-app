@@ -16,6 +16,7 @@ import { SwapFooterLayout } from './components/swap-footer.layout';
 import { SwapSelectedAssets } from './components/swap-selected-assets';
 import { SwapFormValues } from './hooks/use-swap-form';
 import { useSwapContext } from './swap.context';
+import i18n from "@app/i18n";
 
 export function Swap() {
   const { isFetchingExchangeRate, swappableAssetsFrom } = useSwapContext();
@@ -43,7 +44,7 @@ export function Swap() {
           type="submit"
           width="100%"
         >
-          Review and swap
+            {i18n.button["swap.reviewAndSwap"]}
         </LeatherButton>
       </SwapFooterLayout>
       <Outlet />

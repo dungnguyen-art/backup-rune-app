@@ -2,6 +2,7 @@ import { Box, Circle, HStack } from 'leather-styles/jsx';
 import { styled } from 'leather-styles/jsx';
 
 import { LockIcon } from '@app/ui/components/icons/lock-icon';
+import i18n from '@app/i18n'
 
 export function NoPostConditions(): React.JSX.Element {
   return (
@@ -11,7 +12,7 @@ export function NoPostConditions(): React.JSX.Element {
       </Circle>
       <Box flexGrow={1}>
         <styled.span textStyle="body.02">
-          No transfers (besides fees) will be made from your account or the transaction will abort.
+            {i18n.common.noPostConditions}
         </styled.span>
       </Box>
     </HStack>

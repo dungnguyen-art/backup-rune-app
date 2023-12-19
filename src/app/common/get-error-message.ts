@@ -1,5 +1,5 @@
 import { TxBroadcastResultRejected } from '@stacks/transactions';
-
+import i18n from '@app/i18n';
 export function getErrorMessage(
   reason:
     | TxBroadcastResultRejected['reason']
@@ -11,52 +11,52 @@ export function getErrorMessage(
 ) {
   switch (reason) {
     case 'BadAddressVersionByte':
-      return 'Incorrect address';
+      return  i18n.errorMessages.badAddressVersionByte;
     case 'BadFunctionArgument':
-      return 'Incorrect function argument';
+      return i18n.errorMessages.badFunctionArgument;
     case 'BadNonce':
-      return 'Incorrect nonce';
+      return i18n.errorMessages.badNonce;
     case 'BadTransactionVersion':
-      return 'Incorrect transaction';
+      return i18n.errorMessages.badTransactionVersion;
     case 'ConflictingNonceInMempool':
-      return 'Nonce conflict';
+      return i18n.errorMessages.conflictingNonceInMempool;
     case 'ContractAlreadyExists':
-      return 'Contract already exists';
+      return i18n.errorMessages.conflictingNonceInMempool;
     case 'Deserialization':
-      return 'Deserialization failure';
+      return i18n.errorMessages.deserialization;
     case 'EstimatorError':
-      return 'Estimator error';
+      return i18n.errorMessages.estimatorError;
     case 'FeeTooLow':
-      return 'Fee too low';
+      return i18n.errorMessages.feeTooLow;
     case 'NoCoinbaseViaMempool':
-      return 'No coinbase via mempool';
+      return i18n.errorMessages.noCoinbaseViaMempool;
     case 'NoSuchContract':
-      return 'Contract does not exist';
+      return i18n.errorMessages.noSuchContract;
     case 'NoSuchPublicFunction':
-      return 'Function does not exist';
+      return i18n.errorMessages.noSuchPublicFunction;
     case 'NotEnoughFunds':
-      return 'Not enough funds';
+      return i18n.errorMessages.notEnoughFunds;
     case 'PoisonMicroblocksDoNotConflict':
-      return 'Microblock conflict';
+      return i18n.errorMessages.poisonMicroblocksDoNotConflict;
     case 'PoisonMicroblockHasUnknownPubKeyHash':
-      return 'No anchor block with public key hash';
+      return i18n.errorMessages.poisonMicroblockHasUnknownPubKeyHash;
     case 'PoisonMicroblockIsInvalid':
-      return 'Invalid microblock';
+      return i18n.errorMessages.poisonMicroblockIsInvalid;
     case 'Serialization':
-      return 'Serialization failure';
+      return i18n.errorMessages.serialization;
     case 'ServerFailureDatabase':
-      return 'Database error';
+      return i18n.errorMessages.serverFailureDatabase;
     case 'ServerFailureNoSuchChainTip':
-      return 'No such chain tip';
+      return i18n.errorMessages.serverFailureNoSuchChainTip;
     case 'ServerFailureOther':
-      return 'Server failure';
+      return i18n.errorMessages.serverFailureOther;
     case 'SignatureValidation':
-      return 'Failed to validate signature';
+      return i18n.errorMessages.signatureValidation;
     case 'TransferAmountMustBePositive':
-      return 'Transfer amount must be positive';
+      return i18n.errorMessages.transferAmountMustBePositive;
     case 'TransferRecipientCannotEqualSender':
-      return 'Cannot transfer STX to yourself';
+      return i18n.errorMessages.transferRecipientCannotEqualSender;
     default:
-      return 'Something went wrong';
+      return i18n.errorMessages.default;
   }
 }

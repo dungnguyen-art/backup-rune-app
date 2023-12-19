@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useAsync } from 'react-async-hook';
 import toast from 'react-hot-toast';
-
+import i18n from '@app/i18n'
 import {
   clearBrowserStorageLogs,
   copyLogsToClipboard,
@@ -42,21 +42,21 @@ export function AdvancedMenuItems({ closeHandler, settingsShown }: AdvancedMenuI
       <MenuItem
         onClick={closeHandler(async () => {
           await copyLogsToClipboard();
-          toast.success('Copied to clipboard');
+          toast.success(i18n.notification.copiedToClipboard);
         })}
       >
-        Copy diagnostics to clipboard
+          {i18n.common.copyDiagnostics}
         <Caption mt="space.04" fontSize="12px !important">
-          Contains private wallet usage activity
+            {i18n.common.copyDiagnosticsCaption}
         </Caption>
       </MenuItem>
       <MenuItem
         onClick={closeHandler(async () => {
           await clearBrowserStorageLogs();
-          toast.success('Diagnostic logs cleared');
+          toast.success(i18n.common.clearDiagnosticMsg);
         })}
       >
-        Clear diagnostic information
+          {i18n.common.clearDiagnostic}
         <Caption mt="space.04" fontSize="12px !important">
           {diagnosticLogText}
         </Caption>

@@ -6,7 +6,7 @@ import { PsbtRequestDetailsSectionHeader } from '../psbt-request-details-section
 import { PsbtRequestDetailsSectionLayout } from '../psbt-request-details-section.layout';
 import { PsbtInputList } from './components/psbt-input-list/psbt-input-list';
 import { PsbtOutputList } from './components/psbt-output-list/psbt-output-list';
-
+import i18n from '@app/i18n'
 export function PsbtInputsAndOutputs() {
   const { psbtInputs, psbtOutputs } = usePsbtSignerContext();
   const [showDetails, setShowDetails] = useState(false);
@@ -19,12 +19,12 @@ export function PsbtInputsAndOutputs() {
         hasDetails
         onSetShowDetails={(value: boolean) => setShowDetails(value)}
         showDetails={showDetails}
-        title={showDetails ? 'Inputs' : 'Inputs and Outputs'}
+        title={showDetails ? i18n.common.inputs : i18n.common.inputsAndOutputs}
       />
       {showDetails ? (
         <>
           <PsbtInputList inputs={psbtInputs} />
-          <PsbtRequestDetailsSectionHeader title="Outputs" />
+          <PsbtRequestDetailsSectionHeader title={i18n.common.outputs} />
           <PsbtOutputList outputs={psbtOutputs} />
         </>
       ) : null}

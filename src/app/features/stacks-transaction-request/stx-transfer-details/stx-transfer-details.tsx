@@ -4,6 +4,7 @@ import { AttachmentRow } from '@app/features/stacks-transaction-request/attachme
 import { Row } from '@app/features/stacks-transaction-request/row';
 import { useTransactionRequestState } from '@app/store/transactions/requests.hooks';
 import { Title } from '@app/ui/components/typography/title';
+import i18n from '@app/i18n'
 
 export function StxTransferDetails(): React.JSX.Element | null {
   const pendingTransaction = useTransactionRequestState();
@@ -22,7 +23,7 @@ export function StxTransferDetails(): React.JSX.Element | null {
       py="space.06"
       gap="space.05"
     >
-      <Title>Transfer details</Title>
+      <Title>{i18n.common.transferDetails}</Title>
       <Stack gap="space.04">
         <Row name="Recipient" type="Principal" value={pendingTransaction.recipient} />
         <Row name="Amount" type="uSTX" value={pendingTransaction.amount} />

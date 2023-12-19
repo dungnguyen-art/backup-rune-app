@@ -7,6 +7,7 @@ import { useAlexSdkAmountAsFiat } from '../hooks/use-alex-sdk-fiat-price';
 import { useSwapContext } from '../swap.context';
 import { SwapAmountField } from './swap-amount-field';
 import { SwapSelectedAssetLayout } from './swap-selected-asset.layout';
+import i18n from "@app/i18n";
 
 interface SwapSelectedAssetToProps {
   onChooseAsset(): void;
@@ -25,7 +26,7 @@ export function SwapSelectedAssetTo({ onChooseAsset, title }: SwapSelectedAssetT
 
   return (
     <SwapSelectedAssetLayout
-      caption="You have"
+      caption={i18n.screen["swap.caption"]}
       icon={assetField.value?.icon}
       name="swapAmountTo"
       onChooseAsset={onChooseAsset}
@@ -37,7 +38,7 @@ export function SwapSelectedAssetTo({ onChooseAsset, title }: SwapSelectedAssetT
           <SwapAmountField amountAsFiat={amountAsFiat} isDisabled name="swapAmountTo" />
         )
       }
-      symbol={assetField.value?.name ?? 'Select asset'}
+      symbol={assetField.value?.name ?? i18n.dropdown["swap.selectAsset"]}
       title={title}
       value={assetField.value?.balance ? formatMoneyWithoutSymbol(assetField.value?.balance) : '0'}
     />

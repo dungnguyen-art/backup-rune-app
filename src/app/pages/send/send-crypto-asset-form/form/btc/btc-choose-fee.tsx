@@ -14,7 +14,7 @@ import { UtxoResponseItem } from '@app/query/bitcoin/bitcoin-client';
 
 import { useSendBitcoinAssetContextState } from '../../family/bitcoin/components/send-bitcoin-asset-container';
 import { useBtcChooseFee } from './use-btc-choose-fee';
-
+import i18n from '@app/i18n'
 export function useBtcChooseFeeState() {
   const isSendingMax = useLocationStateWithCache('isSendingMax') as boolean;
   const txValues = useLocationStateWithCache('values') as BitcoinSendFormValues;
@@ -40,7 +40,7 @@ export function BtcChooseFee() {
     isSendingMax
   );
 
-  useRouteHeader(<ModalHeader hideActions onGoBack={onGoBack} title="Choose fee" />);
+  useRouteHeader(<ModalHeader hideActions onGoBack={onGoBack} title={i18n.screen["sendAsset-chooseFee.title"]} />);
 
   return (
     <>

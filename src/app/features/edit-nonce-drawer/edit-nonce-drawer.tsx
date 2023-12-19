@@ -14,13 +14,13 @@ import { LeatherButton } from '@app/ui/components/button';
 import { EditNonceForm } from './components/edit-nonce-form';
 
 const url = 'https://www.hiro.so/questions/transactions-advanced-settings';
-
+import i18n from '@app/i18n'
 function CustomFeeMessaging() {
   return (
     <styled.span textStyle="caption.01">
-      If your transaction has been pending for a long time, its nonce might not be correct.
+      {i18n.common.customFeeMessaging}
       <LeatherButton fontSize="14px" ml="space.01" onClick={() => openInNewTab(url)} variant="link">
-        Learn more.
+        {i18n.common.learnMore}
       </LeatherButton>
     </styled.span>
   );

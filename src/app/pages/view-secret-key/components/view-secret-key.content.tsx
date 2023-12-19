@@ -1,5 +1,5 @@
 import { styled } from 'leather-styles/jsx';
-
+import i18n from '@app/i18n'
 export function ViewSecretKeyContent(): React.JSX.Element {
   return (
     <>
@@ -8,16 +8,17 @@ export function ViewSecretKeyContent(): React.JSX.Element {
         mt="space.00"
         mb="space.06"
       >
-        Your <br /> Secret Key
+          {i18n.formatString(i18n.common.yourSecretKey, {
+              htmlTag: <br/>
+          })}
       </styled.h1>
       <styled.p textStyle={['label.01', 'heading.05']}>
-        These 24 words are your Secret Key. They create your account, and you sign in on different
-        devices with them. Make sure to save these somewhere safe.
+          {i18n.common.viewSecretKeyContent}
       </styled.p>
 
       <br />
       <styled.p textStyle={['label.01', 'heading.05']} mb="space.06">
-        If you lose these words, you lose your account.
+          {i18n.common.loseTheseWords}
       </styled.p>
     </>
   );

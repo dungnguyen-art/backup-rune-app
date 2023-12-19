@@ -8,6 +8,7 @@ import { UnsupportedBrowserImg } from '@app/features/ledger/illustrations/ledger
 
 import { LedgerTitle } from '../../components/ledger-title';
 import { LedgerWrapper } from '../../components/ledger-wrapper';
+import i18n from '@app/i18n'
 
 export function UnsupportedBrowserLayout() {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ export function UnsupportedBrowserLayout() {
   return (
     <BaseDrawer isShowing onClose={() => navigate(-1)}>
       <LedgerWrapper image={<UnsupportedBrowserImg />}>
-        <LedgerTitle mb="space.03">Your browser isn't supported</LedgerTitle>
+        <LedgerTitle mb="space.03">{i18n.common.unSupportedBrowserLedger}</LedgerTitle>
         <styled.span textStyle="label.03" color="accent.text-subdued">
           {' '}
           To connect your Ledger with Leather try{' '}

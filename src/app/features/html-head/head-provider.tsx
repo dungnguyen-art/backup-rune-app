@@ -1,6 +1,7 @@
 import { Link, HeadProvider as ReastHeadProvider, Title } from 'react-head';
 
 import { useNewBrandApprover } from '@app/store/settings/settings.selectors';
+import i18n from '@app/i18n'
 
 export function HeadProvider() {
   const { hasApprovedNewBrand } = useNewBrandApprover();
@@ -15,7 +16,7 @@ function LeatherMetaTags() {
   const suffix = process.env.WALLET_ENVIRONMENT === 'development' ? '-dev' : '';
   return (
     <>
-      <Title>Leather</Title>
+      <Title>{i18n.common.leather}</Title>
       <Link rel="icon" href={`/assets/icons/leather-icon-128${suffix}.png`} />
     </>
   );
@@ -24,7 +25,7 @@ function LeatherMetaTags() {
 function HiroMetaTags() {
   return (
     <>
-      <Title>Hiro Wallet</Title>
+      <Title>{i18n.common.hiroWallet}</Title>
       <Link rel="icon" href="/assets/icons/leather-icon-128.png" />
     </>
   );

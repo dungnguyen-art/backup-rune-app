@@ -22,7 +22,7 @@ import { StampsIcon } from '@app/ui/components/icons/stamps-icon';
 
 import { ReceiveItem } from './components/receive-item';
 import { ReceiveItemList } from './components/receive-items';
-
+import i18n from '@app/i18n'
 type ReceiveModal = 'full' | 'collectible';
 
 interface ReceiveModalProps {
@@ -46,23 +46,19 @@ export function ReceiveModal({ type = 'full' }: ReceiveModalProps) {
 
   function copyToClipboard(copyHandler: () => void, tracker = 'copy_address_to_clipboard') {
     void analytics.track(tracker);
-    toast.success('Copied to clipboard!');
+    toast.success(i18n.notification.copiedToClipboard);
     copyHandler();
   }
 
   const title =
     type === 'full' ? (
-      <>
-        Choose asset
-        <br />
-        to receive
-      </>
+        i18n.formatString(i18n.common.chooseAssetToReceive, {
+          htmlTag: <br/>
+        })
     ) : (
-      <>
-        Receive
-        <br />
-        collectible
-      </>
+     i18n.formatString(i18n.common.receiveCollectible, {
+       htmlTag: <br/>
+     })
     );
 
   return (
@@ -73,7 +69,7 @@ export function ReceiveModal({ type = 'full' }: ReceiveModalProps) {
             {title}
           </styled.h1>
           {type === 'full' && (
-            <ReceiveItemList title="Tokens">
+            <ReceiveItemList title={i18n.common.tokens}>
               <ReceiveItem
                 address={btcAddressNativeSegwit}
                 icon={<BtcIcon />}
@@ -100,7 +96,7 @@ export function ReceiveModal({ type = 'full' }: ReceiveModalProps) {
               />
             </ReceiveItemList>
           )}
-          <ReceiveItemList title={type === 'full' ? 'Collectibles' : undefined}>
+          <ReceiveItemList title={type === 'full' ? i18n.common.collectibles : undefined}>
             <ReceiveItem
               address={btcAddressTaproot}
               icon={<OrdinalIcon />}

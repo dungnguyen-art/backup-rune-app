@@ -14,9 +14,9 @@ export const RU_RU = 'ru';
 const i18n = new LocalizedStrings({
   en,
   vi,
-  zh,
-  ja,
-  ru,
+  // zh,
+  // ja,
+  // ru,
 });
 
 export default i18n;

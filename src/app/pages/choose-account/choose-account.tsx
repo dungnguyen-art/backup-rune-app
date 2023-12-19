@@ -12,7 +12,7 @@ import { RequesterFlag } from '@app/components/requester-flag';
 import { ChooseAccountsList } from '@app/pages/choose-account/components/accounts';
 import { useOnOriginTabClose } from '@app/routes/hooks/use-on-tab-closed';
 import { LeatherIcon } from '@app/ui/components/icons/leather-icon';
-
+import i18n from '@app/i18n'
 export const ChooseAccount = memo(() => {
   const { url } = useAppDetails();
 
@@ -36,7 +36,7 @@ export const ChooseAccount = memo(() => {
           {url && <RequesterFlag requester={url.toString()} />}
           <LeatherIcon width="248px" height="58px" />
           <Stack gap="space.04">
-            <styled.h1 textStyle="heading.05">Choose an account to connect</styled.h1>
+            <styled.h1 textStyle="heading.05">{i18n.common.chooseAccountConnect}</styled.h1>
           </Stack>
         </Stack>
         <ChooseAccountsList />

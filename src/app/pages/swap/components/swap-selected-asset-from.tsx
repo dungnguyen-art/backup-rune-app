@@ -3,7 +3,7 @@ import { useField, useFormikContext } from 'formik';
 
 import { createMoney } from '@shared/models/money.model';
 import { isUndefined } from '@shared/utils';
-
+import i18n from '@app/i18n'
 import { useShowFieldError } from '@app/common/form-utils';
 import { convertAmountToFractionalUnit } from '@app/common/money/calculate-money';
 import { formatMoneyWithoutSymbol } from '@app/common/money/format-money';
@@ -14,15 +14,14 @@ import { useSwapContext } from '../swap.context';
 import { SwapAmountField } from './swap-amount-field';
 import { SwapSelectedAssetLayout } from './swap-selected-asset.layout';
 
-const availableBalanceCaption = 'Available balance';
-const maxAvailableTooltip =
-  'Amount of funds that are immediately available for use, after taking into account any pending transactions or holds placed on your account by the protocol.';
-const sendingMaxTooltip = 'When sending max, this amount is affected by the fee you choose.';
 interface SwapSelectedAssetFromProps {
   onChooseAsset(): void;
   title: string;
 }
 export function SwapSelectedAssetFrom({ onChooseAsset, title }: SwapSelectedAssetFromProps) {
+  const availableBalanceCaption = i18n.common.availableBalance;
+  const maxAvailableTooltip = i18n.common.maxAvailableTooltip
+  const sendingMaxTooltip = i18n.common.sendingMaxTooltip;
   const { fetchToAmount, isFetchingExchangeRate, isSendingMax, onSetIsSendingMax } =
     useSwapContext();
   const { setFieldValue, setFieldError, values } = useFormikContext<SwapFormValues>();

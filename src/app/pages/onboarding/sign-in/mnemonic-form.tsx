@@ -9,7 +9,7 @@ import { ErrorLabel } from '@app/components/error-label';
 import { SecretKeyGrid } from '@app/components/secret-key/secret-key-grid';
 import { useSignIn } from '@app/pages/onboarding/sign-in/hooks/use-sign-in';
 import { LeatherButton } from '@app/ui/components/button';
-
+import i18n from '@app/i18n'
 import { MnemonicWordInput } from '../../../components/secret-key/mnemonic-key/mnemonic-word-input';
 import {
   getMnemonicErrorFields,
@@ -70,7 +70,7 @@ export function MnemonicForm({ mnemonic, setMnemonic, twentyFourWordMode }: Mnem
         return (
           <Form>
             <styled.h2 textStyle="heading.03" mt="space.02" mb="space.04" textAlign="center">
-              Your Secret Key
+              {i18n.common.yourSecretKey}
             </styled.h2>
             <SecretKeyGrid>
               {mnemonicFieldArray.map((_, i) => (
@@ -105,7 +105,7 @@ export function MnemonicForm({ mnemonic, setMnemonic, twentyFourWordMode }: Mnem
                   return handleSubmit();
                 }}
               >
-                Continue
+                {i18n.button.continue}
               </LeatherButton>
             </Flex>
           </Form>

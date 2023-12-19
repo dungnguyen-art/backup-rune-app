@@ -16,6 +16,9 @@ import { ArrowLeftIcon } from '@app/ui/components/icons/arrow-left-icon';
 import { HamburgerIcon } from '@app/ui/components/icons/hamburger-icon';
 
 import { AppVersion } from './app-version';
+import {useLocalStorage} from "usehooks-ts";
+import {SETTINGS_LANGUAGE} from "@app/constants/localStorage";
+import {EN_US, VI_VN} from "@app/i18n";
 
 interface HeaderProps extends FlexProps {
   actionButton?: React.JSX.Element;
@@ -30,6 +33,7 @@ export function Header(props: HeaderProps) {
   const navigate = useNavigate();
 
   const isBreakpointSm = useViewportMinWidth('sm');
+  const [,setLanguage] = useLocalStorage(SETTINGS_LANGUAGE, EN_US);
 
   const leatherLogoIsClickable = useMemo(() => {
     return (
@@ -43,6 +47,9 @@ export function Header(props: HeaderProps) {
   }, [pathname]);
 
   return (
+      <>
+        <button type="button" onClick={()=>setLanguage(EN_US)}>English</button>
+        <button type="button" onClick={()=> setLanguage(VI_VN)}>VietNam</button>
     <Flex
       alignItems={hideActions ? 'center' : 'flex-start'}
       backgroundColor={['accent.background-primary', 'accent.background-secondary']}
@@ -52,6 +59,7 @@ export function Header(props: HeaderProps) {
       position="relative"
       {...rest}
     >
+
       {onClose ? (
         <Flex flexBasis="20%">
           <LeatherButton onClick={onClose} variant="ghost">
@@ -95,5 +103,6 @@ export function Header(props: HeaderProps) {
         {actionButton ? actionButton : null}
       </HStack>
     </Flex>
+      </>
   );
 }

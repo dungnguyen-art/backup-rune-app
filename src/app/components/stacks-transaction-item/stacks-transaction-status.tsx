@@ -7,6 +7,7 @@ import { Tooltip } from '@app/components/tooltip';
 
 import { MicroblockLabel } from '../transaction/microblock-label';
 import { PendingLabel } from '../transaction/pending-label';
+import i18n from '@app/i18n'
 
 interface TransactionStatusProps {
   transaction: StacksTx;
@@ -24,7 +25,7 @@ export function StacksTransactionStatus({ transaction }: TransactionStatusProps)
       {isFailed && (
         <Tooltip label={transaction.tx_status} placement="bottom">
           <styled.span color="error.label" textStyle="label.03">
-            Failed
+            {i18n.common.transactionStatusFailed}
           </styled.span>
         </Tooltip>
       )}

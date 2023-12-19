@@ -9,7 +9,7 @@ import { SendTransferActions } from './components/send-transfer-actions';
 import { SendTransferDetails } from './components/send-transfer-details';
 import { SendTransferHeader } from './components/send-transfer-header';
 import { useRpcSendTransfer } from './use-rpc-send-transfer';
-
+import i18n from '@app/i18n'
 export function RpcSendTransfer() {
   const nativeSegwitSigner = useCurrentAccountNativeSegwitIndexZeroSigner();
   const { address, amount, onChooseTransferFee, origin } = useRpcSendTransfer();
@@ -24,7 +24,7 @@ export function RpcSendTransfer() {
         amount={formattedMoney}
         currentAddress={nativeSegwitSigner.address}
       />
-      <SendTransferActions action="Continue" onApprove={onChooseTransferFee} />
+      <SendTransferActions action={i18n.button.continue} onApprove={onChooseTransferFee} />
     </>
   );
 }

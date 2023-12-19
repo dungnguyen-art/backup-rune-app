@@ -5,7 +5,7 @@ import { Box, Flex, Stack, StackProps } from 'leather-styles/jsx';
 import { useAnalytics } from '@app/common/hooks/analytics/use-analytics';
 import { LoadingSpinner } from '@app/components/loading-spinner';
 import { Tabs } from '@app/components/tabs';
-
+import i18n from '@app/i18n'
 const analyticsPath = ['/recommended', '/custom'];
 
 interface ChooseFeeTabsProps extends StackProps {
@@ -27,8 +27,8 @@ export function ChooseFeeTabs(props: ChooseFeeTabsProps) {
     <Stack flexGrow={1} gap="space.04" mt="space.02" width="100%" {...rest}>
       <Tabs
         tabs={[
-          { slug: 'recommended', label: 'Recommended' },
-          { slug: 'custom', label: 'Custom' },
+          { slug: 'recommended', label: i18n.screen["sendAsset-chooseFee.recommendTab"] },
+          { slug: 'custom', label: i18n.screen["sendAsset-chooseFee.customTab"]},
         ]}
         activeTab={activeTab}
         onTabClick={setActiveTabTracked}

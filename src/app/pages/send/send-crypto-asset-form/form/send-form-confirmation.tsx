@@ -12,7 +12,7 @@ import {
 } from '@app/components/info-card/info-card';
 import { InfoLabel } from '@app/components/info-label';
 import { LeatherButton } from '@app/ui/components/button';
-
+import i18n from '@app/i18n'
 interface SendFormConfirmationProps {
   recipient: string;
   fee?: string;
@@ -99,7 +99,7 @@ export function SendFormConfirmation({
           onClick={onBroadcastTransaction}
           width="100%"
         >
-          Confirm and send transaction
+          {i18n.button.confirmAndSendTransaction}
         </LeatherButton>
       </InfoCardFooter>
     </InfoCard>

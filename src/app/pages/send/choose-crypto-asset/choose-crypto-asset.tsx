@@ -1,6 +1,6 @@
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-
+import i18n from '@app/i18n'
 import { AllTransferableCryptoAssetBalances } from '@shared/models/crypto-asset-balance.model';
 import { RouteUrls } from '@shared/route-urls';
 
@@ -46,7 +46,7 @@ export function ChooseCryptoAsset() {
   }
 
   return (
-    <ChooseCryptoAssetLayout title="choose asset to send">
+    <ChooseCryptoAssetLayout title={i18n.common.chooseAssetToSend}>
       <CryptoAssetList
         onItemClick={cryptoAssetBalance => navigateToSendForm(cryptoAssetBalance)}
         cryptoAssetBalances={allTransferableCryptoAssetBalances.filter(asset =>

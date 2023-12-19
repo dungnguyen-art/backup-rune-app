@@ -9,7 +9,7 @@ import { LedgerWrapper } from '@app/features/ledger/components/ledger-wrapper';
 import { ledgerJwtSigningContext } from '@app/features/ledger/flows/jwt-signing/ledger-sign-jwt.context';
 import { useHasApprovedOperation } from '@app/features/ledger/hooks/use-has-approved-transaction';
 import { SignLedgerTransaction } from '@app/features/ledger/illustrations/ledger-illu-sign-ledger-transaction';
-
+import i18n from '@app/i18n'
 export function SignJwtHash() {
   const { jwtPayloadHash } = useContext(ledgerJwtSigningContext);
   const hasApprovedOperation = useHasApprovedOperation();
@@ -20,7 +20,7 @@ export function SignJwtHash() {
         <SignLedgerTransaction />
       </Box>
       <LedgerTitle mt="space.05" mx="space.08">
-        Approve the JWT hash on your device
+        {i18n.common.approveJWT}
       </LedgerTitle>
       <DeviceOperationApprovalStatus
         status={hasApprovedOperation ? 'approved' : 'awaiting-approval'}
@@ -36,7 +36,7 @@ export function SignJwtHash() {
       >
         <LedgerScreenDetail
           title="JWT Hash"
-          tooltipLabel="This is a Sha256 hash of the JSON Web Token payload returned to the connecting app, which proves to the app you own the corresponding private key"
+          tooltipLabel={i18n.common.ledgerToolTipLabel}
         >
           {jwtPayloadHash}
         </LedgerScreenDetail>

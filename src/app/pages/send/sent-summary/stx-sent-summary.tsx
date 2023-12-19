@@ -22,7 +22,7 @@ import { CopyIcon } from '@app/ui/components/icons/copy-icon';
 import { ExternalLinkIcon } from '@app/ui/components/icons/external-link-icon';
 
 import { TxDone } from '../send-crypto-asset-form/components/tx-done';
-
+import i18n from '@app/i18n'
 export function StxSentSummary() {
   const { state } = useLocation();
 
@@ -87,10 +87,10 @@ export function StxSentSummary() {
         <HStack gap="space.04" width="100%">
           <InfoCardBtn
             icon={<ExternalLinkIcon size="14px" />}
-            label="View details"
+            label={i18n.button.viewDetails}
             onClick={onClickLink}
           />
-          <InfoCardBtn icon={<CopyIcon size="14px" />} label="Copy ID" onClick={onClickCopy} />
+          <InfoCardBtn icon={<CopyIcon size="14px" />} label={i18n.button.copyID} onClick={onClickCopy} />
         </HStack>
       </InfoCardFooter>
     </InfoCard>

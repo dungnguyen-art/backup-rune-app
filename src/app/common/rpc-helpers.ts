@@ -8,7 +8,7 @@ import { closeWindow } from '@shared/utils';
 import { useDefaultRequestParams } from './hooks/use-default-request-search-params';
 import { initialSearchParams } from './initial-search-params';
 import { useWalletType } from './use-wallet-type';
-
+import i18n from '@app/i18n';
 export function useRpcRequestParams() {
   const defaultParams = useDefaultRequestParams();
   return useMemo(
@@ -30,7 +30,7 @@ export function useRejectIfLedgerWallet(request: keyof WalletMethodMap) {
       id: requestId,
       error: {
         code: RpcErrorCode.INTERNAL_ERROR,
-        message: 'Ledger wallet is not supported',
+        message: i18n.errorMessages.rejectLedgerWallet,
       },
     })
   );

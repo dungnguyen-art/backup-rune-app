@@ -11,7 +11,7 @@ import { NetworkListItem } from '@app/pages/select-network/network-list-item';
 import { useBackgroundLocationRedirect } from '@app/routes/hooks/use-background-location-redirect';
 import { useCurrentNetworkState, useNetworksActions } from '@app/store/networks/networks.hooks';
 import { useNetworks } from '@app/store/networks/networks.selectors';
-
+import i18n from '@app/i18n'
 import { AddNetworkButton } from './components/add-network-button';
 
 const defaultNetworkIds = Object.values(WalletDefaultNetworkConfigurationIds) as string[];
@@ -46,7 +46,7 @@ export function SelectNetwork() {
   }
 
   return (
-    <BaseDrawer title="Select Network" isShowing onClose={closeNetworkModal}>
+    <BaseDrawer title={i18n.common.selectNetwork} isShowing onClose={closeNetworkModal}>
       <NetworkListLayout>
         {Object.keys(networks).map(id => (
           <NetworkListItem

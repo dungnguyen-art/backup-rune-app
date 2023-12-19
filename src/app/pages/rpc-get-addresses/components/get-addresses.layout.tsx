@@ -4,6 +4,7 @@ import { RequesterFlag } from '@app/components/requester-flag';
 import { LeatherButton } from '@app/ui/components/button';
 import { LeatherIcon } from '@app/ui/components/icons/leather-icon';
 import { LeatherLIcon } from '@app/ui/components/icons/leather-l-icon';
+import i18n from "@app/i18n";
 
 interface GetAddressesLayoutProps {
   requester: string;
@@ -46,10 +47,12 @@ export function GetAddressesLayout(props: GetAddressesLayoutProps) {
         bg="accent.background-secondary"
       >
         <styled.p textStyle="caption.02">
-          By connecting you give permission to {requester} to see all addresses linked to this
-          account
+            {i18n.formatString(i18n.common.getAddressLayout, {
+                requester: requester
+            })}
         </styled.p>
       </Flex>
     </Flex>
   );
 }
+

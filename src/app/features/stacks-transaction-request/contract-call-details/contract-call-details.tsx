@@ -10,6 +10,7 @@ import { useTransactionRequestState } from '@app/store/transactions/requests.hoo
 import { Title } from '@app/ui/components/typography/title';
 
 import { FunctionArgumentsList } from './function-arguments-list';
+import i18n from '@app/i18n'
 
 function ContractCallDetailsSuspense() {
   const transactionRequest = useTransactionRequestState();
@@ -29,7 +30,7 @@ function ContractCallDetailsSuspense() {
       gap="space.05"
       width="100%"
     >
-      <Title>Function and arguments</Title>
+      <Title>{i18n.common.functionAndArguments}</Title>
 
       <ContractPreviewLayout
         onClick={() =>

@@ -24,6 +24,7 @@ import {
 import { LeatherButton } from '@app/ui/components/button';
 import { Input } from '@app/ui/components/input';
 import { Title } from '@app/ui/components/typography/title';
+import i18n from '@app/i18n'
 
 /**
  * The **peer** network ID.
@@ -62,7 +63,7 @@ export function AddNetwork() {
 
   const { setFieldValue } = formikProps;
 
-  useRouteHeader(<Header title="Add a network" onClose={() => navigate(RouteUrls.Home)} />);
+  useRouteHeader(<Header title={i18n.button.addaNetwork} onClose={() => navigate(RouteUrls.Home)} />);
 
   const handleApiChange = (newValue: BitcoinNetworkModes) => {
     setBitcoinApi(newValue);
@@ -272,7 +273,7 @@ export function AddNetwork() {
                 width="100%"
                 data-testid={NetworkSelectors.NetworkStacksAddress}
               />
-              <Title>Bitcoin API URL</Title>
+              <Title>{i18n.common.bitcoinAPIURL}</Title>
               <Input
                 borderRadius="sm"
                 height="64px"
@@ -302,7 +303,7 @@ export function AddNetwork() {
                 data-testid={NetworkSelectors.BtnAddNetwork}
                 type="submit"
               >
-                Add network
+                {i18n.button.addNetwork}
               </LeatherButton>
             </Stack>
           </form>

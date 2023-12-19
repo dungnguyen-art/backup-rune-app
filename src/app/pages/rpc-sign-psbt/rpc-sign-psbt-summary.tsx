@@ -16,7 +16,7 @@ import {
 import { CheckmarkIcon } from '@app/ui/components/icons/checkmark-icon';
 import { CopyIcon } from '@app/ui/components/icons/copy-icon';
 import { ExternalLinkIcon } from '@app/ui/components/icons/external-link-icon';
-
+import i18n from '@app/i18n'
 export function RpcSignPsbtSummary() {
   const { state } = useLocation();
   const { handleOpenBitcoinTxLink: handleOpenTxLink } = useBitcoinExplorerLink();
@@ -34,7 +34,7 @@ export function RpcSignPsbtSummary() {
 
   function onClickCopy() {
     onCopy();
-    toast.success('ID copied!');
+    toast.success(i18n.notification.IDcopied);
   }
 
   return (
@@ -56,10 +56,10 @@ export function RpcSignPsbtSummary() {
           <HStack gap="space.04" width="100%">
             <InfoCardBtn
               icon={<ExternalLinkIcon size="14px" />}
-              label="View details"
+              label={i18n.button.viewDetails}
               onClick={onClickLink}
             />
-            <InfoCardBtn icon={<CopyIcon size="14px" />} label="Copy ID" onClick={onClickCopy} />
+            <InfoCardBtn icon={<CopyIcon size="14px" />} label={i18n.button.copyID} onClick={onClickCopy} />
           </HStack>
         </InfoCardFooter>
       </InfoCard>

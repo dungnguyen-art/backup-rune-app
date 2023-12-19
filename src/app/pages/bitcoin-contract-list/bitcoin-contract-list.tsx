@@ -10,7 +10,7 @@ import { truncateMiddle } from '@app/ui/utils/truncate-middle';
 
 import { BitcoinContractListItemLayout } from './components/bitcoin-contract-list-item-layout';
 import { BitcoinContractListLayout } from './components/bitcoin-contract-list-layout';
-
+import i18n from '@app/i18n'
 export function BitcoinContractList() {
   const { getAllSignedBitcoinContracts } = useBitcoinContracts();
   const [bitcoinContracts, setBitcoinContracts] = useState<BitcoinContractListItem[]>([]);
@@ -39,8 +39,8 @@ export function BitcoinContractList() {
         <Flex width="100%" height="100vh" alignItems="center" justifyContent="center">
           <styled.span textAlign="center" textStyle="body.01">
             {isError
-              ? 'Bitcoin Contracts are not available currently'
-              : "You don't have any open Bitcoin Contracts."}
+              ? i18n.common.bitcoinContractNotAvailable
+              : i18n.common.notOpenBitcoinContract}
           </styled.span>
         </Flex>
       ) : (

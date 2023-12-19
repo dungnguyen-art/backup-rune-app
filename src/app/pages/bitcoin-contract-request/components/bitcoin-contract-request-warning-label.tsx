@@ -1,6 +1,7 @@
 import { BitcoinContractRequestSelectors } from '@tests/selectors/bitcoin-contract-request.selectors';
 
 import { WarningLabel } from '@app/components/warning-label';
+import i18n from "@app/i18n";
 
 export function BitcoinContractRequestWarningLabel(props: { appName?: string }) {
   const { appName } = props;
@@ -12,8 +13,10 @@ export function BitcoinContractRequestWarningLabel(props: { appName?: string }) 
       width="100%"
       data-testid={BitcoinContractRequestSelectors.BitcoinContractWarningLabel}
     >
-      By signing the contract YOU AGREE TO LOCK YOUR BITCOIN with {appName} into a contract where it
-      will remain until a triggering event will release it.
+      {i18n.formatString(i18n.common["warning.bitcoinContractRequest"], {
+        appName: appName || ""
+      })}
     </WarningLabel>
   );
 }
+//i18n

@@ -13,7 +13,7 @@ import { useShowSwitchAccountsState } from '@app/store/ui/ui.hooks';
 import { AccountListUnavailable } from './components/account-list-unavailable';
 import { CreateAccountAction } from './components/create-account-action';
 import { SwitchAccountList } from './components/switch-account-list';
-
+import i18n from '@app/i18n'
 export const SwitchAccountDrawer = memo(() => {
   const [isShowing, setShowSwitchAccountsState] = useShowSwitchAccountsState();
 
@@ -38,7 +38,7 @@ export const SwitchAccountDrawer = memo(() => {
   }
 
   return isShowing ? (
-    <ControlledDrawer title="Select account" isShowing={isShowing} onClose={onClose}>
+    <ControlledDrawer title={i18n.modal.selectTheme} isShowing={isShowing} onClose={onClose}>
       <Box mb={whenWallet({ ledger: 'space.04', software: '' })}>
         <SwitchAccountList
           currentAccountIndex={currentAccountIndex}

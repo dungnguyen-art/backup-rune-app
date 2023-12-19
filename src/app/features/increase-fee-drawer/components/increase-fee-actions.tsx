@@ -4,6 +4,7 @@ import { Flex } from 'leather-styles/jsx';
 import { LoadingKeys, useLoading } from '@app/common/hooks/use-loading';
 import { useWalletType } from '@app/common/use-wallet-type';
 import { LeatherButton } from '@app/ui/components/button';
+import i18n from '@app/i18n'
 
 interface IncreaseFeeActionsProps {
   isDisabled: boolean;
@@ -21,7 +22,7 @@ export function IncreaseFeeActions(props: IncreaseFeeActionsProps) {
   return (
     <Flex gap="space.02">
       <LeatherButton onClick={onCancel} variant="outline" flex="1">
-        Cancel
+        {i18n.button.cancel}
       </LeatherButton>
       <LeatherButton
         type="submit"

@@ -10,7 +10,7 @@ import { useBackgroundLocationRedirect } from '@app/routes/hooks/use-background-
 import { LeatherButton } from '@app/ui/components/button';
 
 import { QrCode } from './address-qr-code';
-
+import i18n from '@app/i18n'
 interface ReceiveTokensLayoutProps {
   address: string;
   accountName?: string;
@@ -26,7 +26,7 @@ export function ReceiveTokensLayout(props: ReceiveTokensLayoutProps) {
   const backgroundLocation = useLocationState<Location>('backgroundLocation');
 
   return (
-    <BaseDrawer title="Receive" isShowing onClose={() => navigate(backgroundLocation ?? '..')}>
+    <BaseDrawer title={i18n.modal.receiveQR} isShowing onClose={() => navigate(backgroundLocation ?? '..')}>
       {warning && warning}
       <Flex alignItems="center" flexDirection="column" pb={['space.05', 'space.08']} px="space.05">
         <styled.h2 mt="space.05" textStyle="heading.03">
@@ -52,7 +52,7 @@ export function ReceiveTokensLayout(props: ReceiveTokensLayoutProps) {
           </Flex>
         </Flex>
         <LeatherButton fullWidth mt="space.05" onClick={() => onCopyAddressToClipboard(address)}>
-          Copy address
+          {i18n.button.copyAddress}
         </LeatherButton>
       </Flex>
     </BaseDrawer>

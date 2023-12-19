@@ -6,6 +6,7 @@ import { useTransactionRequestState } from '@app/store/transactions/requests.hoo
 import { Caption } from '@app/ui/components/typography/caption';
 
 import { FunctionArgumentItem } from './function-argument-item';
+import i18n from '@app/i18n'
 
 function FunctionArgumentsListBase(props: StackProps): React.JSX.Element | null {
   const transactionRequest = useTransactionRequestState();
@@ -28,7 +29,7 @@ function FunctionArgumentsListBase(props: StackProps): React.JSX.Element | null 
           })}
         </Stack>
       ) : (
-        <Caption>There are no additional arguments passed for this function call.</Caption>
+        <Caption>{i18n.common.functionArgumentsListBase}</Caption>
       )}
     </>
   );

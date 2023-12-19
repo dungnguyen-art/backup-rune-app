@@ -34,6 +34,7 @@ import {
   signLedgerJwtHash,
 } from './jwt-signing.utils';
 import { LedgerJwtSigningContext, LedgerJwtSigningProvider } from './ledger-sign-jwt.context';
+import i18n from '@app/i18n'
 
 export function LedgerSignJwtContainer() {
   const location = useLocation();
@@ -178,7 +179,7 @@ export function LedgerSignJwtContainer() {
         isWaitingOnPerformedAction={awaitingDeviceConnection || canUserCancelAction}
         onClose={onCancelConnectLedger}
         pauseOnClickOutside
-        waitingOnPerformedActionMessage="Ledger device in use"
+        waitingOnPerformedActionMessage={i18n.common.ledgerInUse}
       >
         <Outlet />
       </BaseDrawer>

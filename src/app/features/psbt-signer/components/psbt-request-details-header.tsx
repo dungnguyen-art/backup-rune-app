@@ -5,11 +5,10 @@ import { Tooltip } from '@app/components/tooltip';
 import { usePsbtSignerContext } from '@app/features/psbt-signer/psbt-signer.context';
 import { LockIcon } from '@app/ui/components/icons/lock-icon';
 import { UnlockIcon } from '@app/ui/components/icons/unlock-icon';
+import i18n from '@app/i18n'
 
-const immutableLabel =
-  'Any modification to the transaction, including the fee amount or other inputs/outputs, will invalidate the signature.';
-const uncertainLabel =
-  'The transaction details can be altered by other participants. This means the final outcome of the transaction might be different than initially agreed upon.';
+const immutableLabel = i18n.common.immutableLabel;
+const uncertainLabel = i18n.common.uncertainLabel;
 
 export function PsbtRequestDetailsHeader() {
   const { isPsbtMutable } = usePsbtSignerContext();
@@ -19,7 +18,7 @@ export function PsbtRequestDetailsHeader() {
 
   return (
     <HStack alignItems="center" gap="space.02">
-      <styled.h2 textStyle="heading.05">Transaction</styled.h2>
+      <styled.h2 textStyle="heading.05">{i18n.common.transaction}</styled.h2>
       <Tooltip
         label={isPsbtMutable ? uncertainLabel : immutableLabel}
         maxWidth="230px"

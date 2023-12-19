@@ -7,6 +7,7 @@ import { microStxToStx, stxToMicroStx } from '@app/common/money/unit-conversion'
 import { ErrorLabel } from '@app/components/error-label';
 
 import { FeeMultiplier } from './fee-multiplier';
+import i18n from '@app/i18n'
 
 interface IncreaseFeeFieldProps {
   currentFee: number;
@@ -46,7 +47,7 @@ export function IncreaseFeeField(props: IncreaseFeeFieldProps): React.JSX.Elemen
         />
         <Flex>
           <styled.label display="block" fontSize={1} fontWeight={500} mb="space.02" htmlFor="fee">
-            Fee
+            {i18n.common.fee}
           </styled.label>
           <styled.input
             _focus={{ border: 'focus' }}

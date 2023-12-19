@@ -19,7 +19,7 @@ import { LeatherButton } from '@app/ui/components/button';
 import { InscriptionPreviewCard } from '../../../components/inscription-preview-card/inscription-preview-card';
 import { useBitcoinBroadcastTransaction } from '../../../query/bitcoin/transaction/use-bitcoin-broadcast-transaction';
 import { useSendInscriptionState } from './components/send-inscription-container';
-
+import i18n from '@app/i18n'
 function useSendInscriptionReviewState() {
   const location = useLocation();
   return {
@@ -65,7 +65,7 @@ export function SendInscriptionReview() {
   }
 
   return (
-    <BaseDrawer title="Review" isShowing enableGoBack onClose={() => navigate(RouteUrls.Home)}>
+    <BaseDrawer title={i18n.common.review} isShowing enableGoBack onClose={() => navigate(RouteUrls.Home)}>
       <Box px="space.06" mt="space.06">
         <InscriptionPreviewCard
           image={<InscriptionPreview inscription={inscription} />}
@@ -83,7 +83,7 @@ export function SendInscriptionReview() {
         </Stack>
 
         <LeatherButton aria-busy={isBroadcasting} width="100%" onClick={sendInscription}>
-          Confirm and send transaction
+          {i18n.button.confirmAndSendTransaction}
         </LeatherButton>
       </InfoCard>
     </BaseDrawer>

@@ -21,7 +21,7 @@ import { truncateMiddle } from '@app/ui/utils/truncate-middle';
 
 import { RetrieveTaprootToNativeSegwitLayout } from './components/retrieve-taproot-to-native-segwit.layout';
 import { useGenerateRetrieveTaprootFundsTx } from './use-generate-retrieve-taproot-funds-tx';
-
+import i18n from '@app/i18n'
 export function RetrieveTaprootToNativeSegwit() {
   const navigate = useNavigate();
   const balance = useCurrentTaprootAccountBalance();
@@ -37,7 +37,7 @@ export function RetrieveTaprootToNativeSegwit() {
       tx,
       async onSuccess() {
         await delay(1200);
-        toast.success('Transaction broadcasted succesfully');
+        toast.success(i18n.notification.broadcastSuccesfully);
         await delay(700);
         navigate(RouteUrls.Activity);
         void analytics.track('broadcast_retrieve_taproot_to_native_segwit');
@@ -56,10 +56,10 @@ export function RetrieveTaprootToNativeSegwit() {
     >
       <InfoCard mt="space.05">
         <Stack width="100%">
-          <InfoCardRow title="Your address" value={<FormAddressDisplayer address={recipient} />} />
+          <InfoCardRow title={i18n.common.yourAddress} value={<FormAddressDisplayer address={recipient} />} />
           <InfoCardSeparator />
-          <InfoCardRow title="Amount" value={formatMoneyPadded(balance)} />
-          <InfoCardRow title="Fee" value={formatMoneyPadded(fee)} />
+          <InfoCardRow title={i18n.common.amount} value={formatMoneyPadded(balance)} />
+          <InfoCardRow title={i18n.common.fee} value={formatMoneyPadded(fee)} />
           <InfoCardSeparator />
           {uninscribedUtxos.map((utxo, i) => (
             <InfoCardRow

@@ -13,6 +13,7 @@ import { SwapIcon } from '@app/ui/components/icons/swap-icon';
 
 import { ActionButton } from './action-button';
 import { SendButton } from './send-button';
+import i18n from '@app/i18n'
 
 export function AccountActions(props: FlexProps) {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ export function AccountActions(props: FlexProps) {
       <ActionButton
         data-testid={HomePageSelectors.ReceiveCryptoAssetBtn}
         icon={<ArrowDownIcon />}
-        label="Receive"
+        label={i18n.button.receive}
         onClick={() => navigate(receivePath, { state: { backgroundLocation: location } })}
       />
 
@@ -38,7 +39,7 @@ export function AccountActions(props: FlexProps) {
         <ActionButton
           data-testid={HomePageSelectors.FundAccountBtn}
           icon={<PlusIcon />}
-          label="Buy"
+          label={i18n.button.buy}
           onClick={() => navigate(RouteUrls.FundChooseCurrency)}
         />
       )}
@@ -46,7 +47,7 @@ export function AccountActions(props: FlexProps) {
       <ActionButton
         data-testid={HomePageSelectors.SwapBtn}
         icon={<SwapIcon />}
-        label="Swap"
+        label={i18n.button.swap}
         onClick={() => navigate(RouteUrls.Swap)}
       />
     </Flex>

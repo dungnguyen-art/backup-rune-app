@@ -24,7 +24,7 @@ import {
   useCurrentTaprootAccount,
 } from '@app/store/accounts/blockchain/bitcoin/taproot-account.hooks';
 import { useCurrentNetwork } from '@app/store/networks/networks.selectors';
-
+import i18n from '@app/i18n'
 function useRpcSignBitcoinMessage() {
   const defaultParams = useDefaultRequestParams();
   return useMemo(
@@ -91,7 +91,7 @@ function useSignBip322MessageFactory({ address, signPsbt }: SignBip322MessageFac
       });
 
       await shortPauseBeforeToast();
-      toast.success('Message signed successfully');
+      toast.success(i18n.notification.messageSuccessfully);
 
       chrome.tabs.sendMessage(
         tabId,

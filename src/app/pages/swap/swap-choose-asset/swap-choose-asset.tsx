@@ -1,5 +1,4 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-
 import { SwapSelectors } from '@tests/selectors/swap.selectors';
 import { Box, styled } from 'leather-styles/jsx';
 import get from 'lodash.get';
@@ -8,7 +7,7 @@ import { BaseDrawer } from '@app/components/drawer/base-drawer';
 
 import { useSwapContext } from '../swap.context';
 import { SwapAssetList } from './components/swap-asset-list';
-
+import i18n from '@app/i18n'
 export function useSwapChooseAssetState() {
   const location = useLocation();
   const swapListType = get(location.state, 'swap') as string;
@@ -23,16 +22,16 @@ export function SwapChooseAsset() {
   const isFromList = swapListType === 'from';
 
   const title = isFromList ? (
-    <>
-      Choose asset
-      <br />
-      to swap
-    </>
+      <>
+      {i18n.formatString(i18n.common.chooseAssetToSwap, {
+          htmlTag: <br/>
+      })}
+      </>
   ) : (
     <>
-      Choose asset
-      <br />
-      to receive
+        {i18n.formatString(i18n.common.chooseAssetToReceive, {
+            htmlTag: <br/>
+        })}
     </>
   );
 

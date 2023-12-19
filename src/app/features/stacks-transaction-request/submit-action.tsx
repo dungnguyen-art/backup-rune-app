@@ -9,11 +9,11 @@ import { useDrawers } from '@app/common/hooks/use-drawers';
 import { LoadingKeys, useLoading } from '@app/common/hooks/use-loading';
 import { useTransactionError } from '@app/features/stacks-transaction-request/hooks/use-transaction-error';
 import { ButtonProps, LeatherButton } from '@app/ui/components/button';
-
+import i18n from '@app/i18n'
 function BaseConfirmButton(props: ButtonProps): React.JSX.Element {
   return (
     <LeatherButton fullWidth mt="space.04" type="submit" {...props}>
-      Confirm
+      {i18n.button.confirm}
     </LeatherButton>
   );
 }

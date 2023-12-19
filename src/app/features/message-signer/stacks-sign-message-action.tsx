@@ -2,7 +2,7 @@ import { HStack } from 'leather-styles/jsx';
 
 import { useWalletType } from '@app/common/use-wallet-type';
 import { LeatherButton } from '@app/ui/components/button';
-
+import i18n from '@app/i18n'
 interface StacksSignMessageActionsProps {
   onSignMessage(): void;
   onSignMessageCancel(): void;
@@ -15,7 +15,7 @@ export function SignMessageActions(props: StacksSignMessageActionsProps) {
   return (
     <HStack gap="space.04">
       <LeatherButton onClick={onSignMessageCancel} variant="outline" width="50%">
-        Cancel
+          {i18n.button.cancel}
       </LeatherButton>
       <LeatherButton aria-busy={isLoading} onClick={onSignMessage} width="50%">
         {whenWallet({ software: 'Sign', ledger: 'Sign on Ledger' })}

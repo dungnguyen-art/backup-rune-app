@@ -6,6 +6,7 @@ import { Flex, Stack } from 'leather-styles/jsx';
 import { BaseDrawer } from '@app/components/drawer/base-drawer';
 import { Spinner } from '@app/ui/components/spinner';
 import { Caption } from '@app/ui/components/typography/caption';
+import i18n from '@app/i18n'
 
 interface IncreaseFeeDrawerProps {
   feeForm: React.JSX.Element;
@@ -25,8 +26,7 @@ export function IncreaseFeeDrawer({ feeForm, onClose, isShowing }: IncreaseFeeDr
             }
           >
             <Caption>
-              If your transaction is pending for a long time, its fee might not be high enough to be
-              included in a block. Update the fee for a higher value and try again.
+              {i18n.common.increaseFeeDrawerCaption}
             </Caption>
             {feeForm && feeForm}
           </Suspense>

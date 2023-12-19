@@ -17,6 +17,7 @@ import { CollectiblesLayout } from './components/collectibes.layout';
 import { StacksCryptoAssets } from './components/stacks/stacks-crypto-assets';
 import { TaprootBalanceDisplayer } from './components/taproot-balance-displayer';
 import { useIsFetchingCollectiblesRelatedQuery } from './hooks/use-is-fetching-collectibles';
+import i18n from '@app/i18n'
 
 export function Collectibles() {
   const { whenWallet } = useWalletType();
@@ -28,7 +29,7 @@ export function Collectibles() {
 
   return (
     <CollectiblesLayout
-      title="Collectibles"
+      title={i18n.common.collectibles}
       subHeader={whenWallet({
         software: (
           <TaprootBalanceDisplayer

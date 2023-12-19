@@ -11,6 +11,7 @@ import { StacksTransactionItem } from '@app/components/stacks-transaction-item/s
 import { useCurrentStacksAccount } from '@app/store/accounts/blockchain/stacks/stacks-account.hooks';
 import { ArrowDownIcon } from '@app/ui/components/icons/arrow-down-icon';
 import { ArrowUpIcon } from '@app/ui/components/icons/arrow-up-icon';
+import i18n from '@app/i18n'
 
 import { TxTransferIconWrapper } from './tx-transfer-icon-wrapper';
 
@@ -24,7 +25,7 @@ export function StxTransferItem({ stxTransfer, parentTx }: StxTransferItemProps)
 
   const caption = getTxCaption(parentTx.tx) ?? '';
   const icon = isOriginator ? <ArrowUpIcon size="xs" /> : <ArrowDownIcon size="xs" />;
-  const title = 'Stacks Token Transfer';
+  const title = i18n.common.stxTransferItemTitle;
   const value = `${isOriginator ? '-' : ''}${stacksValue({
     value: stxTransfer.amount,
     withTicker: false,

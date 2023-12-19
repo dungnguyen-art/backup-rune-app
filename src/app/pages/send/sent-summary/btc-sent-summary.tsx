@@ -21,7 +21,7 @@ import { CopyIcon } from '@app/ui/components/icons/copy-icon';
 import { ExternalLinkIcon } from '@app/ui/components/icons/external-link-icon';
 
 import { TxDone } from '../send-crypto-asset-form/components/tx-done';
-
+import i18n from '@app/i18n'
 export function BtcSentSummary() {
   const { state } = useLocation();
 
@@ -50,10 +50,10 @@ export function BtcSentSummary() {
 
   function onClickCopy() {
     onCopy();
-    toast.success('ID copied!');
+    toast.success(i18n.notification.IDcopied);
   }
 
-  useRouteHeader(<ModalHeader hideActions defaultClose title="Sent" />);
+  useRouteHeader(<ModalHeader hideActions defaultClose title={i18n.screen["sendAsset-sent"]} />);
 
   return (
     <InfoCard>
@@ -67,23 +67,23 @@ export function BtcSentSummary() {
       />
 
       <Stack pb="space.06" px="space.06" width="100%">
-        <InfoCardRow title="To" value={<FormAddressDisplayer address={recipient} />} />
+        <InfoCardRow title={i18n.common.to} value={<FormAddressDisplayer address={recipient} />} />
         <InfoCardSeparator />
-        <InfoCardRow title="Total spend" value={totalSpend} />
+        <InfoCardRow title={i18n.screen["sendAsset-common.totalSpend"]} value={totalSpend} />
 
-        <InfoCardRow title="Sending" value={sendingValue} />
-        <InfoCardRow title="Fee" value={feeRowValue} />
-        {arrivesIn && <InfoCardRow title="Arrives in" value={arrivesIn} />}
+        <InfoCardRow title={i18n.screen["sendAsset-common.sending"]} value={sendingValue} />
+        <InfoCardRow title={i18n.common.fee} value={feeRowValue} />
+        {arrivesIn && <InfoCardRow title={i18n.screen["sendAsset-common.arrivesIn"]} value={arrivesIn} />}
       </Stack>
 
       <InfoCardFooter>
         <HStack gap="space.04" width="100%">
           <InfoCardBtn
             icon={<ExternalLinkIcon size="14px" />}
-            label="View details"
+            label={i18n.button.viewDetails}
             onClick={onClickLink}
           />
-          <InfoCardBtn icon={<CopyIcon size="14px" />} label="Copy ID" onClick={onClickCopy} />
+          <InfoCardBtn icon={<CopyIcon size="14px" />} label={i18n.button.copyID} onClick={onClickCopy} />
         </HStack>
       </InfoCardFooter>
     </InfoCard>

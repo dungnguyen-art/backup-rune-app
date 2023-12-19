@@ -13,6 +13,7 @@ import {
 import { useTransactionRequestState } from '@app/store/transactions/requests.hooks';
 import { CodeBlock } from '@app/ui/components/codeblock';
 import { Title } from '@app/ui/components/typography/title';
+import i18n from '@app/i18n'
 
 function ContractCodeSection() {
   const transactionRequest = useTransactionRequestState();
@@ -79,10 +80,10 @@ export function ContractDeployDetails() {
     <Stack mb="space.05" gap="space.05" width="100%">
       <HStack gap="0">
         <TabButton onClick={() => setTab('details')} isActive={tab === 'details'}>
-          Details
+          {i18n.button.details}
         </TabButton>
         <TabButton onClick={() => setTab('code')} isActive={tab === 'code'}>
-          Code
+          {i18n.button.code}
         </TabButton>
       </HStack>
       {tab === 'details' ? (
@@ -94,16 +95,16 @@ export function ContractDeployDetails() {
           py="space.06"
           px="space.04"
         >
-          <Title>Contract deploy details</Title>
+          <Title>{i18n.common.contractDeployDetails}</Title>
           <ContractPreviewLayout
             contractAddress={currentAccountStxAddress}
             contractName={transactionRequest.contractName}
           />
           <Stack gap="space.04">
             {currentAccountStxAddress && (
-              <Row name="Contract address" value={currentAccountStxAddress} type="Principal" />
+              <Row name={i18n.common.contractAddress} value={currentAccountStxAddress} type="Principal" />
             )}
-            <Row name="Contract name" value={transactionRequest.contractName} type="String" />
+            <Row name={i18n.common.contractName} value={transactionRequest.contractName} type="String" />
             {transactionRequest.attachment && <AttachmentRow />}
           </Stack>
         </Stack>

@@ -2,6 +2,7 @@ import { HStack, styled } from 'leather-styles/jsx';
 
 import { LeatherButton } from '@app/ui/components/button';
 import { ArrowUpIcon } from '@app/ui/components/icons/arrow-up-icon';
+import i18n from '@app/i18n'
 
 interface PsbtRequestDetailsSectionHeaderProps {
   hasDetails?: boolean;
@@ -22,10 +23,10 @@ export function PsbtRequestDetailsSectionHeader({
         <LeatherButton onClick={() => onSetShowDetails(!showDetails)} variant="text">
           {showDetails ? (
             <HStack gap="space.01">
-              See less <ArrowUpIcon />
+              {i18n.common.seeLess}<ArrowUpIcon />
             </HStack>
           ) : (
-            'See details'
+              i18n.common.seeDetails
           )}
         </LeatherButton>
       ) : null}

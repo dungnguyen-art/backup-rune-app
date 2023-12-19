@@ -26,6 +26,7 @@ import { useBitcoinBroadcastTransaction } from '@app/query/bitcoin/transaction/u
 import { LeatherButton } from '@app/ui/components/button';
 
 import { useSendFormNavigate } from '../../hooks/use-send-form-navigate';
+import i18n from "@app/i18n";
 
 function useBrc20SendFormConfirmationState() {
   const location = useLocation();
@@ -103,7 +104,7 @@ export function Brc20SendFormConfirmation() {
     });
   }
 
-  useRouteHeader(<ModalHeader hideActions defaultClose defaultGoBack title="Review" />);
+  useRouteHeader(<ModalHeader hideActions defaultClose defaultGoBack title={i18n.common.review} />);
 
   return (
     <InfoCard data-testid={SendCryptoAssetSelectors.ConfirmationDetails}>

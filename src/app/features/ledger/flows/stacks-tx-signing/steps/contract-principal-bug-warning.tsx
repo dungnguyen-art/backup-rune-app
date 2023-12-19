@@ -6,6 +6,7 @@ import { delay } from '@app/common/utils';
 import { LedgerTitle } from '@app/features/ledger/components/ledger-title';
 import { LedgerWrapper } from '@app/features/ledger/components/ledger-wrapper';
 import { LeatherButton } from '@app/ui/components/button';
+import i18n from '@app/i18n'
 
 import { useLedgerTxSigningContext } from '../../../generic-flows/tx-signing/ledger-sign-tx.context';
 
@@ -18,7 +19,7 @@ export function ContractPrincipalBugWarning() {
       <Box mx="space.02">
         <img src={GenericErrorImg} width="106px" />
       </Box>
-      <LedgerTitle mt="space.04">Stacks Ledger app is outdated</LedgerTitle>
+      <LedgerTitle mt="space.04">{i18n.common.stackLedgerOutdated}</LedgerTitle>
       <styled.span mt="space.04" mx="space.02" textStyle="body.02">
         Some transactions are not compatible with outdated app versions. Update your app in{' '}
         <a href="ledgerlive://manager" style={{ textDecoration: 'underline' }}>
@@ -36,13 +37,13 @@ export function ContractPrincipalBugWarning() {
             setIsIdle();
           }}
         >
-          Open Ledger Live ↗
+          {i18n.common.openLedgerLive}
         </styled.a>
         <LeatherButton
           onClick={() => context.hasUserSkippedBuggyAppWarning.done('ignored-warning')}
           variant="outline"
         >
-          Continue anyway
+          {i18n.button.continueAnyway}
         </LeatherButton>
       </HStack>
     </LedgerWrapper>

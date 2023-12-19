@@ -5,6 +5,7 @@ import { ConnectLedgerSuccess } from '@app/features/ledger/illustrations/ledger-
 import { LedgerConnectInstructionTitle } from '../../components/ledger-title';
 import { LedgerWrapper } from '../../components/ledger-wrapper';
 import { LedgerSuccessLabel } from '../../components/success-label';
+import i18n from '@app/i18n'
 
 interface ConnectLedgerSuccessLayoutProps {
   chain: SupportedBlockchains;
@@ -14,7 +15,7 @@ export function ConnectLedgerSuccessLayout({ chain }: ConnectLedgerSuccessLayout
     <LedgerWrapper>
       <ConnectLedgerSuccess />
       <LedgerConnectInstructionTitle chain={chain} mt="space.05" mx="50px" />
-      <LedgerSuccessLabel my="space.06">Connected!</LedgerSuccessLabel>
+      <LedgerSuccessLabel my="space.06">{i18n.common.connected}</LedgerSuccessLabel>
     </LedgerWrapper>
   );
 }

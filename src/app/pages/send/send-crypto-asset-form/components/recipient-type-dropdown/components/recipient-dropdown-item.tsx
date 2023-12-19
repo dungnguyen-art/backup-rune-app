@@ -2,8 +2,8 @@ import { HStack, styled } from 'leather-styles/jsx';
 
 import { LeatherButton } from '@app/ui/components/button';
 import { ChevronDownIcon } from '@app/ui/components/icons/chevron-down-icon';
+import i18n from '@app/i18n'
 
-const labels = ['Address', 'BNS Name'];
 const testLabels = ['address', 'bns-name'];
 
 interface RecipientDropdownItemProps {
@@ -16,6 +16,7 @@ export function RecipientDropdownItem({
   isVisible,
   onSelectItem,
 }: RecipientDropdownItemProps) {
+  const labels = [i18n.screen["sendAsset-form.address"], i18n.screen["sendAsset-form.BNSName"]];
   return (
     <LeatherButton
       _hover={{

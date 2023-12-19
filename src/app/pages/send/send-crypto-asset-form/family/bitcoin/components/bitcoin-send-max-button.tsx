@@ -7,8 +7,8 @@ import { Tooltip } from '@app/components/tooltip';
 import { LeatherButton } from '@app/ui/components/button';
 
 import { useSendMax } from '../hooks/use-send-max';
-
-const sendMaxTooltipLabel = 'This amount is affected by the fee you choose';
+import i18n from '@app/i18n'
+const sendMaxTooltipLabel = i18n.screen["sendAsset-form.sendMaxTooltipLabel"]
 
 interface BitcoinSendMaxButtonProps {
   balance: Money;
@@ -51,7 +51,7 @@ export function BitcoinSendMaxButton({
           variant="link"
           {...props}
         >
-          {isSendingMax ? 'Sending max' : 'Send max'}
+          {isSendingMax ? i18n.screen["sendAsset-form.sendingMax"] : i18n.screen["sendAsset-form.sendMax"]}
         </LeatherButton>
       </Box>
     </Tooltip>

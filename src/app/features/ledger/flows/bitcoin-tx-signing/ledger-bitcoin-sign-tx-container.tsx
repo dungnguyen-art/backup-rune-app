@@ -28,6 +28,7 @@ import { useLedgerNavigate } from '../../hooks/use-ledger-navigate';
 import { connectLedgerBitcoinApp, getBitcoinAppVersion } from '../../utils/bitcoin-ledger-utils';
 import { useLedgerResponseState } from '../../utils/generic-ledger-utils';
 import { ApproveSignLedgerBitcoinTx } from './steps/approve-bitcoin-sign-ledger-tx';
+import i18n from '@app/i18n'
 
 export const ledgerBitcoinTxSigningRoutes = ledgerSignTxRoutes({
   component: <LedgerSignBitcoinTxContainer />,
@@ -67,7 +68,7 @@ function LedgerSignBitcoinTxContainer() {
 
   if (!inputsToSign) {
     ledgerNavigate.cancelLedgerAction();
-    toast.error('No input signing config defined');
+    toast.error(i18n.notification.noInputToSign);
     return null;
   }
 
@@ -128,7 +129,7 @@ function LedgerSignBitcoinTxContainer() {
         isWaitingOnPerformedAction={awaitingDeviceConnection || canUserCancelAction}
         onClose={ledgerNavigate.cancelLedgerAction}
         pauseOnClickOutside
-        waitingOnPerformedActionMessage="Ledger device in use"
+        waitingOnPerformedActionMessage={i18n.common.ledgerInUse}
       >
         <Outlet />
       </BaseDrawer>

@@ -15,6 +15,7 @@ import { ChevronUpIcon } from '@app/ui/components/icons/chevron-up-icon';
 
 import { SwapDetailLayout } from './swap-detail.layout';
 import { SwapDetailsLayout } from './swap-details.layout';
+import i18n from "@app/i18n";
 
 function RouteNames(props: { swapSubmissionData: SwapSubmissionData }) {
   return props.swapSubmissionData.router.map((route, i) => {
@@ -52,30 +53,30 @@ export function SwapDetails() {
     <SwapDetailsLayout>
       <SwapDetailLayout
         dataTestId={SwapSelectors.SwapDetailsProtocol}
-        title="Powered by"
+        title={i18n.screen["swap-review.poweredBy"]}
         value={swapSubmissionData.protocol}
       />
       <SwapDetailLayout
-        title="Route"
+        title={i18n.screen["swap-review.route"]}
         value={
           <HStack gap="space.01">
             <RouteNames swapSubmissionData={swapSubmissionData} />
           </HStack>
         }
       />
-      <SwapDetailLayout title="Min to receive" value={formattedMinToReceive} />
+      <SwapDetailLayout title={i18n.screen["swap-review.minToReceive"]} value={formattedMinToReceive} />
       <SwapDetailLayout
-        title="Slippage tolerance"
+        title={i18n.screen["swap-review.tolerance"]}
         value={`${swapSubmissionData.slippage * 100}%`}
       />
       <SwapDetailLayout
-        title="Liquidity provider fee"
-        tooltipLabel="To receive a share of these fees, become a Liquidity Provider on app.alexlab.co."
+        title={i18n.screen["swap-review.liquidityProviderFee"]}
+        tooltipLabel={i18n.screen["swap-review.transactionFeesTooltip"]}
         value={`${swapSubmissionData.liquidityFee} ${swapSubmissionData.swapAssetFrom.name}`}
       />
       <SwapDetailLayout
-        title="Transaction fees"
-        tooltipLabel="Swap transactions are sponsored by default. However, this sponsorship may not apply when you have pending transactions. In such cases, if you choose to proceed, the associated costs will be deducted from your balance."
+        title={i18n.screen["swap-review.transactionFees"]}
+        tooltipLabel={i18n.screen["swap-review.transactionFeesTooltip"]}
         value={
           swapSubmissionData.sponsored
             ? 'Sponsored'
@@ -83,10 +84,10 @@ export function SwapDetails() {
         }
       />
       <SwapDetailLayout
-        title="Estimated confirmation time"
+        title={i18n.screen["swap-review.estimateTime"]}
         value={getEstimatedConfirmationTime(isTestnet, blockTime)}
       />
-      <SwapDetailLayout title="Nonce" value={swapSubmissionData.nonce?.toString() ?? 'Unknown'} />
+      <SwapDetailLayout title={i18n.screen["swap-review.none"]} value={swapSubmissionData.nonce?.toString() ?? 'Unknown'} />
     </SwapDetailsLayout>
   );
 }

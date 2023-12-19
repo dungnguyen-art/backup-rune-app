@@ -12,6 +12,7 @@ import { Caption } from '@app/ui/components/typography/caption';
 import { LedgerTitle } from '../../components/ledger-title';
 import { LedgerWrapper } from '../../components/ledger-wrapper';
 import { useLedgerRequestKeysContext } from '../../generic-flows/request-keys/ledger-request-keys.context';
+import i18n from '@app/i18n'
 
 interface PossibleReasonUnableToConnectProps {
   text: string;
@@ -43,13 +44,13 @@ export function ConnectLedgerErrorLayout(props: ConnectLedgerErrorLayoutProps) {
       <Box mt="space.02">
         <ConnectLedgerErr />
       </Box>
-      <LedgerTitle mt="space.07">We're unable to connect to your Ledger device</LedgerTitle>
+      <LedgerTitle mt="space.07">{i18n.errorMessages["connectLedferError.title"]}</LedgerTitle>
       {warningText ? (
         <WarningLabel mt="space.04" px="space.06" fontSize="14px">
           {warningText}
         </WarningLabel>
       ) : (
-        <ErrorLabel mt="space.02">Unable to connect</ErrorLabel>
+        <ErrorLabel mt="space.02">{i18n.errorMessages.unableToConnect}</ErrorLabel>
       )}
       <Stack borderRadius="md" gap="space.01" textAlign="left" py="space.05">
         <PossibleReasonUnableToConnect text="Check if Ledger Live is open. Close it and try again" />
@@ -60,15 +61,15 @@ export function ConnectLedgerErrorLayout(props: ConnectLedgerErrorLayoutProps) {
         <PossibleReasonUnableToConnect text="Check you've approved the browser USB pop up" />
       </Stack>
       <LeatherButton width="100%" onClick={onTryAgain}>
-        Try again
+          {i18n.button.tryAgain}
       </LeatherButton>
       <Caption mt="space.05">
-        If the problem persists, check our{' '}
+          {i18n.common["connectLedger.caption"]}{' '}
         <ExternalLink
           textDecoration="underline"
           href="https://leather.gitbook.io/guides/securing-the-wallet/using-ledger-with-leather"
         >
-          Support Page
+            {i18n.common["connectLedger.externalLink"]}
         </ExternalLink>
       </Caption>
     </LedgerWrapper>

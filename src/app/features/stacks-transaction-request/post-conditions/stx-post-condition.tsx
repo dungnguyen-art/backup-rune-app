@@ -4,6 +4,7 @@ import { stacksValue } from '@app/common/stacks-utils';
 import { EventCard } from '@app/components/event-card';
 import { useTransactionRequestState } from '@app/store/transactions/requests.hooks';
 import { truncateMiddle } from '@app/ui/utils/truncate-middle';
+import i18n from '@app/i18n'
 
 export function StxPostCondition(): React.JSX.Element | null {
   const pendingTransaction = useTransactionRequestState();
@@ -13,7 +14,7 @@ export function StxPostCondition(): React.JSX.Element | null {
 
   return (
     <EventCard
-      title="You'll send exactly"
+      title={i18n.common.stxPostCondition}
       icon="STX"
       amount={stacksValue({ value: pendingTransaction.amount, withTicker: false })}
       ticker="STX"

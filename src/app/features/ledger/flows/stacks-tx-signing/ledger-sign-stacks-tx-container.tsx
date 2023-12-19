@@ -33,6 +33,7 @@ import { useLedgerNavigate } from '../../hooks/use-ledger-navigate';
 import { useVerifyMatchingLedgerStacksPublicKey } from '../../hooks/use-verify-matching-stacks-public-key';
 import { useLedgerResponseState } from '../../utils/generic-ledger-utils';
 import { ApproveSignLedgerStacksTx } from './steps/approve-sign-stacks-ledger-tx';
+import i18n from '@app/i18n'
 
 export const ledgerStacksTxSigningRoutes = ledgerSignTxRoutes({
   component: <LedgerSignStacksTxContainer />,
@@ -178,7 +179,7 @@ function LedgerSignStacksTxContainer() {
         isWaitingOnPerformedAction={awaitingDeviceConnection || canUserCancelAction}
         onClose={closeAction}
         pauseOnClickOutside
-        waitingOnPerformedActionMessage="Ledger device in use"
+        waitingOnPerformedActionMessage={i18n.common.ledgerInUse}
       >
         <Outlet />
       </BaseDrawer>

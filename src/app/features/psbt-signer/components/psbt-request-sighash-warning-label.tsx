@@ -1,11 +1,9 @@
 import { WarningLabel } from '@app/components/warning-label';
-
+import i18n from '@app/i18n'
 export function PsbtRequestSighashWarningLabel() {
   return (
-    <WarningLabel title="Be careful with this transaction" width="100%">
-      The details you see here are not guaranteed. Be sure to fully trust your counterparty, who can
-      later modify this transaction to send or receive other assets from your account, and possibly
-      even drain it.
+    <WarningLabel title={i18n.common.requestSighashWarningTitle} width="100%">
+        {i18n.common.requestSighashWarning}
     </WarningLabel>
   );
 }

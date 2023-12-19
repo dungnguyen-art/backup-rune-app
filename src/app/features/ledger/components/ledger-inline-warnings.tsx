@@ -6,6 +6,7 @@ import { WarningLabel } from '@app/components/warning-label';
 import { Capitalize } from '@app/ui/utils/capitalize';
 
 import { isStacksLedgerAppClosed } from '../utils/stacks-ledger-utils';
+import i18n from "@app/i18n";
 
 interface RequiresChainProp {
   chain: SupportedBlockchains;
@@ -21,7 +22,7 @@ function OutdatedLedgerAppWarning({ chain }: RequiresChainProp) {
     <WarningLabel textAlign="left">
       Latest version of <Capitalize>{chain} app</Capitalize> required
       <styled.a href="ledgerlive://manager" textDecoration="underline">
-        Update on Ledger Live to continue
+        {i18n.common.updateLedger}
       </styled.a>
     </WarningLabel>
   );
@@ -60,3 +61,5 @@ export function CommonLedgerDeviceInlineWarnings({
     return <LedgerAppClosedWarning chain={chain} />;
   return null;
 }
+
+//i18n-variable

@@ -13,7 +13,7 @@ import { useLoading } from '@app/common/hooks/use-loading';
 import { safelyFormatHexTxid } from '@app/common/utils/safe-handle-txid';
 import { useCurrentStacksNetworkState } from '@app/store/networks/networks.hooks';
 import { useSubmittedTransactionsActions } from '@app/store/submitted-transactions/submitted-transactions.hooks';
-
+import i18n from '@app/i18n';
 const timeForApiToUpdate = 250;
 
 interface UseSubmitTransactionArgs {
@@ -50,7 +50,7 @@ export function useSubmitTransactionCallback({ loadingKey }: UseSubmitTransactio
               rawTx: bytesToHex(transaction.serialize()),
               txId: safelyFormatHexTxid(response.txid),
             });
-            toast.success('Transaction submitted!');
+            toast.success(i18n.notification.transactionSubmitted);
 
             void analytics.track('broadcast_transaction', { symbol: 'stx' });
             onSuccess(safelyFormatHexTxid(response.txid));
